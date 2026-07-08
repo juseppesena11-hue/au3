@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 110" role="img" aria-labelledby="title desc">
+  <title id="title">Aureon Construção</title>
+  <desc id="desc">Logótipo Aureon Construção</desc>
+  <g fill="none" stroke="#263744" stroke-width="5">
+    <circle cx="55" cy="53" r="39"/>
+    <path d="M26 74 54 19 83 74M40 50h30"/>
+  </g>
+  <path d="M25 74h60L74 60H36Z" fill="#db8a25"/>
+  <text x="112" y="55" fill="#263744" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="700" letter-spacing="1">AUREON</text>
+  <text x="115" y="78" fill="#b26e22" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing=".5">CONSTRUÇÃO E REMODELAÇÃO</text>
+</svg>

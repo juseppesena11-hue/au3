@@ -1,0 +1,71 @@
+cozinha-finalizada-remodelacao-aureon.webp
+  original: 597BBB29-D11E-48DD-AE7E-422EBC8E1167.jpeg
+  descrição/alt sugerido: Cozinha finalizada com móveis brancos, bancada escura e iluminação embutida.
+
+interior-remodelado-pavimento-iluminacao-aureon.webp
+  original: BDD29E55-AC26-4449-8A70-DE512A166DED.jpeg
+  descrição/alt sugerido: Interior remodelado com pavimento novo, pintura branca e iluminação embutida.
+
+cozinha-antes-remodelacao-aureon.webp
+  original: B314ED30-49B7-4C6E-87A5-121D194FC6EA.jpeg
+  descrição/alt sugerido: Cozinha antes da remodelação, com teto e paredes danificados.
+
+cozinha-demolicao-preparacao-aureon.webp
+  original: 6AEB9023-EC2E-4141-A85B-2F29E12F6F94.jpeg
+  descrição/alt sugerido: Cozinha em fase de demolição e preparação.
+
+sala-cozinha-open-space-finalizada-aureon.webp
+  original: 60440F20-237A-4C96-ADEF-133582DA2FE3.jpeg
+  descrição/alt sugerido: Sala e cozinha em open space após remodelação.
+
+cozinha-pintura-preparacao-aureon.webp
+  original: E731604D-AB87-45CB-AC8E-5C1BD0945742.jpeg
+  descrição/alt sugerido: Cozinha durante fase de pintura e proteção dos móveis.
+
+teto-falso-pladur-em-obra-aureon.webp
+  original: 625474BF-FFD4-42DB-BBA8-BB61522E6455.jpeg
+  descrição/alt sugerido: Teto falso/pladur em obra com preparação de superfícies.
+
+casa-banho-marmore-duche-vidro-aureon.webp
+  original: DCA24568-9403-43BC-A5EF-8BB6C7792236.jpeg
+  descrição/alt sugerido: Casa de banho finalizada com revestimento tipo mármore, duche e resguardo em vidro.
+
+corredor-remodelado-pintura-pavimento-aureon.webp
+  original: DFB67F12-AF00-4577-A48A-E07370EFD5D2.jpeg
+  descrição/alt sugerido: Corredor/interior finalizado com pintura, pavimento e iluminação embutida.
+
+construcao-estrutura-betao-aureon.webp
+  original: 1E0D90DC-64CA-4F61-B537-38ACF425034C.jpeg
+  descrição/alt sugerido: Estrutura em betão armado durante obra de construção.
+
+claraboia-instalacao-acabamento-aureon.webp
+  original: E91E7756-43CD-4743-8B45-1F6995FBAEE8.jpeg
+  descrição/alt sugerido: Claraboia em fase de instalação e acabamento interior.
+
+remodelacao-casa-banho-final-aureon.webp
+  original: 45031475-99F4-4DB2-8A62-B551B2CDB1B7.jpeg
+  descrição/alt sugerido: Casa de banho remodelada com base de duche e resguardo em vidro.
+
+telhado-novo-telha-ceramica-aureon.webp
+  original: 7EFDAAA4-322E-4997-B4C1-304F5057F2C4.jpeg
+  descrição/alt sugerido: Telhado com telha cerâmica após intervenção.
+
+remodelacao-casa-banho-durante-aureon.webp
+  original: 4E9F87C1-1926-47CC-B3F1-2CD91243FB11.jpeg
+  descrição/alt sugerido: Casa de banho durante aplicação de revestimento cerâmico.
+
+telhado-com-janela-cobertura-aureon.webp
+  original: 6A503E88-71D0-4BE8-82D3-37C92934B945.jpeg
+  descrição/alt sugerido: Telhado com janela de cobertura durante intervenção exterior.
+
+claraboia-finalizada-aureon.webp
+  original: 2A6BEBFF-B0F6-45F3-A708-10C9DC414E72.jpeg
+  descrição/alt sugerido: Claraboia finalizada com acabamento interior pintado.
+
+reparacao-infiltracao-teto-antes-aureon.webp
+  original: F7C7D1FA-1D8A-43C9-8FC6-7C92887DDBD5.jpeg
+  descrição/alt sugerido: Teto com marcas de infiltração antes da reparação.
+
+reparacao-infiltracao-teto-depois-aureon.webp
+  original: 5977AB2B-41EB-457E-8F94-AB5F8918214D.jpeg
+  descrição/alt sugerido: Teto reparado e pintado após intervenção.
