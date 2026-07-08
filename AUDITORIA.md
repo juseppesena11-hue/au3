@@ -33,7 +33,7 @@ Não foi feito redesign, não foram removidas rotas e não foram publicados draf
 ## Alterações executadas na atualização de 8 de julho de 2026
 
 - Contactos reais configurados em `data/site.js`.
-- Email antigo substituído por `Juseppena11@gmail.com`.
+- Email antigo substituído por `juseppesena11@gmail.com`.
 - Morada real adicionada ao site, footer, contactos, páginas legais e schema.
 - Fotografias reais organizadas em `public/imagens/obras`.
 - Catálogo central de imagens criado em `data/images.js`.

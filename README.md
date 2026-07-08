@@ -38,7 +38,7 @@ Os dados comerciais centrais estão em `data/site.js`:
 Contacto atual configurado:
 
 - Telefone / WhatsApp: `+351 926 378 947`
-- Email: `Juseppena11@gmail.com`
+- Email: `juseppesena11@gmail.com`
 - Morada: `Rua Ipanema 193, Anexo 2, 2785-174 São Domingos de Rana, Portugal`
 - Domínio: `https://aureon.pt`
 
@@ -47,7 +47,7 @@ Contacto atual configurado:
 Copie `.env.example` para `.env.local` e preencha apenas localmente:
 
 - `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`: servidor de email.
-- `CONTACT_TO`: destinatário dos pedidos, atualmente `Juseppena11@gmail.com`.
+- `CONTACT_TO`: destinatário dos pedidos, atualmente `juseppesena11@gmail.com`.
 - `NEXT_PUBLIC_SITE_URL`: URL pública, normalmente `https://aureon.pt`.
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`: código do Search Console.
 - `NEXT_PUBLIC_GA_ID`: reservado para futura integração de analytics; definir a variável não ativa analytics.

@@ -7,7 +7,7 @@ export const site = {
   whatsappBase: "https://wa.me/351926378947",
   whatsapp:
     "https://wa.me/351926378947?text=Ol%C3%A1%20Aureon%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.",
-  email: "Juseppena11@gmail.com",
+  email: "juseppesena11@gmail.com",
   address: {
     streetAddress: "Rua Ipanema 193, Anexo 2",
     postalCode: "2785-174",

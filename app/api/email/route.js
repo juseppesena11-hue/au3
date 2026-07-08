@@ -128,7 +128,7 @@ export async function POST(request) {
 
     await transporter.sendMail({
       from: `"Site Aureon" <${process.env.SMTP_USER}>`,
-      to: process.env.CONTACT_TO || "Juseppena11@gmail.com",
+      to: process.env.CONTACT_TO || "juseppesena11@gmail.com",
       replyTo: email || undefined,
       subject: `Novo pedido de orçamento - ${service}`,
       text: [

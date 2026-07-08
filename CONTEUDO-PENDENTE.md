@@ -5,7 +5,7 @@ Não publicar nem inventar elementos comerciais, legais ou técnicos sem confirm
 ## Já configurado nesta fase
 
 - Telefone / WhatsApp: `+351 926 378 947`
-- Email: `Juseppena11@gmail.com`
+- Email: `juseppesena11@gmail.com`
 - Morada: `Rua Ipanema 193, Anexo 2, 2785-174 São Domingos de Rana, Portugal`
 - Domínio: `https://aureon.pt`
 - Fotografias reais organizadas em `public/imagens/obras`
