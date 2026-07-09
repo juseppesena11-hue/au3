@@ -7,7 +7,7 @@ const serviceBase = [
     short: "Casas, ampliações e estruturas executadas com rigor desde a fundação à entrega.",
     headline: "Construção profissional com acompanhamento técnico e equipa especializada",
     intro:
-      "Executamos obras de construção com elevado padrão técnico, segurança estrutural e total organização de equipas. Do início ao fim, tratamos do planeamento, fundações, alvenaria, instalações, acabamentos e entrega final.",
+      "Executamos obras de construção com planeamento, organização de equipas, leitura técnica e coordenação entre fundações, alvenaria, instalações, acabamentos e entrega.",
     includes: [
       "Construção de casas completas",
       "Ampliações e anexos",
@@ -77,7 +77,7 @@ const serviceBase = [
     slug: "canalizacao",
     title: "Canalização",
     short: "Instalações novas, substituição de tubagens, fugas e reparações rápidas.",
-    headline: "Soluções completas para canalização",
+    headline: "Instalações e reparações de canalização com diagnóstico do ponto afetado",
     intro:
       "Executamos instalações, substituições e reparações de canalização em remodelações, construções novas e intervenções urgentes.",
     includes: [
@@ -97,7 +97,7 @@ const serviceBase = [
     short: "Divisórias, tetos falsos e soluções técnicas com linhas limpas.",
     headline: "Divisórias e tetos falsos com precisão",
     intro:
-      "Criamos espaços funcionais, estéticos e duráveis através de soluções completas em pladur.",
+      "Executamos tetos falsos, divisórias e forros técnicos em pladur, considerando estrutura, placas, reforços, isolamento, iluminação e preparação para pintura.",
     includes: [
       "Tetos falsos",
       "Divisórias interiores",
@@ -382,6 +382,211 @@ const relatedArticleMap = {
   "casas-de-banho": ["quanto-custa-remodelar-casa-de-banho"],
 };
 
+const serviceEditorialOverrides = {
+  construcao: {
+    headline: "Construção coordenada com leitura técnica, faseamento e controlo de execução",
+    intro:
+      "A Aureon organiza trabalhos de construção e ampliações com atenção à sequência entre estrutura, alvenaria, redes técnicas, impermeabilização e acabamentos. Cada obra é avaliada pelo estado real do local, acessos, condicionantes e necessidades de acompanhamento técnico.",
+    trust:
+      "Antes de avançar, confirmamos condições de obra, fases críticas, especialidades envolvidas e pontos que exigem validação técnica competente.",
+  },
+  remodelacao: {
+    headline: "Remodelações interiores organizadas por fases e especialidades",
+    intro:
+      "Uma remodelação não é apenas trocar acabamentos. Pode envolver demolições, proteção de zonas habitadas, canalização, eletricidade, pladur, pavimentos, pintura e revisão final. A Aureon coordena essas fases para reduzir retrabalho e decisões improvisadas.",
+    trust:
+      "O orçamento depende do estado do imóvel, trabalhos ocultos, acessos, materiais escolhidos e nível real de intervenção necessário.",
+  },
+  pinturas: {
+    headline: "Pintura com preparação de suporte, correção de defeitos e acabamento controlado",
+    intro:
+      "A pintura é tratada como a fase final de um suporte bem preparado. Avaliamos fissuras, manchas, humidade, zonas reparadas, necessidade de primário, proteção de pavimentos e compatibilidade da tinta com o espaço.",
+    trust:
+      "Quando existe infiltração ou humidade, a origem deve ser resolvida antes da pintura para evitar que o problema volte a aparecer.",
+  },
+  pladur: {
+    headline: "Tetos falsos, divisórias e soluções em pladur com integração técnica",
+    intro:
+      "Executamos pladur para tetos falsos, sancas, divisórias, regularização de tetos, isolamento e integração de iluminação. A solução deve considerar perfis, placas adequadas, reforços, juntas, passagens técnicas e pintura final.",
+    trust:
+      "Cargas suspensas, zonas húmidas, isolamento e iluminação embutida devem ser definidos antes de fechar placas.",
+  },
+  "telhados-impermeabilizacao": {
+    headline: "Revisão de telhados, remates e impermeabilizações antes da humidade chegar ao interior",
+    intro:
+      "Avaliamos telhas partidas ou deslocadas, rufos, caleiras, cumeeiras, claraboias, janelas de cobertura, platibandas e sinais interiores de humidade. O objetivo é perceber a origem provável e escolher entre reparação pontual ou intervenção mais completa.",
+    trust:
+      "Intervir cedo em cobertura e remates pode evitar danos interiores mais extensos em tetos, paredes, pintura e isolamento.",
+  },
+  cozinhas: {
+    headline: "Remodelação de cozinhas com redes, iluminação, mobiliário e acabamentos coordenados",
+    intro:
+      "A cozinha exige decisões de funcionalidade e execução: pontos de água, esgoto, tomadas, exaustão, iluminação, móveis, bancada, pintura, proteção de áreas existentes e integração com sala/open space quando aplicável.",
+    trust:
+      "A posição dos equipamentos e das redes deve ser confirmada antes de fechar paredes, tetos ou mobiliário.",
+  },
+  "casas-de-banho": {
+    headline: "Casas de banho com atenção a canalização, impermeabilização e selagens",
+    intro:
+      "A remodelação de uma casa de banho concentra várias decisões técnicas num espaço pequeno: demolição controlada, canalização, esgotos, impermeabilização, base de duche, revestimentos, ventilação, eletricidade, resguardos e acabamentos.",
+    trust:
+      "Os erros mais caros costumam estar em pendentes, impermeabilização, ligações de esgoto, ventilação e selagens mal resolvidas.",
+  },
+  "seguros-ruturas-infiltracoes": {
+    headline: "Diagnóstico e reparação de ruturas e infiltrações antes da reposição do acabamento",
+    intro:
+      "Uma mancha não indica sempre a origem da água. A Aureon procura distinguir mancha antiga de infiltração ativa, documentar o estado inicial quando aplicável, reparar a causa provável, permitir secagem e só depois regularizar e pintar.",
+    trust:
+      "Podemos apoiar tecnicamente a documentação de um sinistro, mas não prometemos aceitação, cobertura ou indemnização por seguradora.",
+  },
+};
+
+const serviceBudgetFactors = {
+  construcao: ["projeto e validações técnicas necessárias", "acessos, segurança e organização de estaleiro", "estrutura, alvenaria e redes técnicas envolvidas", "materiais definidos e sequência de execução"],
+  remodelacao: ["estado das redes existentes", "demolições, proteções e resíduos", "número de especialidades envolvidas", "acabamentos, equipamentos e alterações ao layout"],
+  pinturas: ["estado do suporte e fissuras", "manchas, humidade ou necessidade de primário", "proteção de zonas ocupadas", "tipo de tinta e número de demãos"],
+  pladur: ["tipo de placa e perfis", "reforços, isolamento e iluminação embutida", "altura, acessos e geometria", "tratamento de juntas e preparação para pintura"],
+  "telhados-impermeabilizacao": ["acesso seguro à cobertura", "área afetada e estado das telhas", "rufos, caleiras, claraboias e remates", "necessidade de andaimes, drenagem ou impermeabilização complementar"],
+  cozinhas: ["alteração de pontos de água e eletricidade", "demolição e preparação de superfícies", "móveis, bancada, ferragens e equipamentos", "integração com sala/open space e proteção de áreas existentes"],
+  "casas-de-banho": ["estado da canalização e esgotos", "impermeabilização e pendentes", "formato dos revestimentos e recortes", "base de duche, resguardo, loiças, ventilação e eletricidade"],
+  "seguros-ruturas-infiltracoes": ["origem provável e acesso à zona afetada", "extensão de abertura e reparação", "tempo de secagem do suporte", "regularização, pintura e documentação fotográfica"],
+};
+
+const serviceSpecificFaqs = {
+  "telhados-impermeabilizacao": [
+    {
+      question: "Como saber se basta reparar ou é preciso intervir no telhado todo?",
+      answer:
+        "Depende da origem da água, do estado das telhas, subtelha, rufos, caleiras e remates. Uma origem localizada pode permitir reparação pontual; infiltrações repetidas ou degradação generalizada exigem avaliação mais ampla.",
+    },
+    {
+      question: "As infiltrações vêm sempre das telhas?",
+      answer:
+        "Não. Claraboias, janelas de cobertura, caleiras, rufos, chaminés, platibandas e encontros com paredes laterais são pontos frequentes de entrada de água.",
+    },
+  ],
+  "seguros-ruturas-infiltracoes": [
+    {
+      question: "Devemos pintar logo depois de uma infiltração?",
+      answer:
+        "Não sem confirmar a origem e o estado de secagem. Se a causa continuar ativa, a pintura apenas esconde temporariamente o problema.",
+    },
+    {
+      question: "A Aureon garante aprovação pela seguradora?",
+      answer:
+        "Não. A Aureon pode apoiar tecnicamente e documentar a intervenção quando aplicável, mas cobertura, aprovação e indemnização dependem da seguradora.",
+    },
+  ],
+  "casas-de-banho": [
+    {
+      question: "Quais são os erros mais comuns numa remodelação de WC?",
+      answer:
+        "Avançar sem rever canalização, ignorar impermeabilização, falhar pendentes, ventilar mal o espaço, escolher revestimentos sem confirmar suporte e selar mal a zona de duche.",
+    },
+    {
+      question: "É possível manter a disposição atual?",
+      answer:
+        "Frequentemente sim, desde que canalização, esgotos e ventilação estejam em condições. Manter pontos principais pode reduzir complexidade.",
+    },
+  ],
+  cozinhas: [
+    {
+      question: "O que deve ser definido antes de montar os móveis?",
+      answer:
+        "Pontos de água, esgoto, tomadas, circuitos, exaustão, iluminação, medidas dos equipamentos e posição da bancada devem estar confirmados antes da montagem.",
+    },
+    {
+      question: "Uma cozinha em open space exige cuidados especiais?",
+      answer:
+        "Sim. Iluminação, circulação, exaustão, pavimento, transições e integração visual com a sala devem ser pensados em conjunto.",
+    },
+  ],
+  remodelacao: [
+    {
+      question: "É possível viver na casa durante a remodelação?",
+      answer:
+        "Depende do âmbito. Obras com cozinha, casa de banho, redes ou demolições geram limitações, pó e fases sem acesso a zonas essenciais.",
+    },
+    {
+      question: "Como reduzir imprevistos?",
+      answer:
+        "Com fotografias, visita quando necessária, mapa de trabalhos claro, decisões de materiais atempadas e registo de alterações antes de executar.",
+    },
+  ],
+  pladur: [
+    {
+      question: "Posso colocar iluminação embutida em teto falso?",
+      answer:
+        "Sim, desde que o teto seja planeado com altura, passagens, caixas, ventilação e acesso adequados para manutenção.",
+    },
+    {
+      question: "Pladur serve para zonas húmidas?",
+      answer:
+        "Pode servir quando se escolhe placa e sistema adequados. Zonas de contacto direto com água exigem impermeabilização e solução própria.",
+    },
+  ],
+  pinturas: [
+    {
+      question: "A pintura resolve manchas de humidade?",
+      answer:
+        "Não resolve a origem. Primeiro deve ser identificada e corrigida a causa; depois o suporte deve secar, ser preparado e só então pintado.",
+    },
+    {
+      question: "O que melhora o acabamento final?",
+      answer:
+        "Limpeza, reparação de fissuras, massas, lixagem, primário adequado, proteção das zonas existentes e aplicação correta das demãos.",
+    },
+  ],
+  construcao: [
+    {
+      question: "A Aureon coordena várias fases de construção?",
+      answer:
+        "Sim, dentro do âmbito contratado. Estrutura, alvenaria, redes e acabamentos devem ser organizados por sequência e compatibilização técnica.",
+    },
+    {
+      question: "Trabalhos estruturais exigem validação técnica?",
+      answer:
+        "Sim. Sempre que existam elementos estruturais, projeto, segurança ou autorizações aplicáveis, devem intervir técnicos competentes.",
+    },
+  ],
+};
+
+const additionalDetailSections = {
+  pinturas: [
+    {
+      title: "Pintura depois de infiltração",
+      content:
+        "Depois de uma infiltração, a pintura só deve avançar quando a origem foi corrigida e o suporte está seco. Caso contrário, manchas e descasque podem regressar.",
+    },
+  ],
+  pladur: [
+    {
+      title: "Tetos falsos e iluminação",
+      content:
+        "Focos, fitas LED, caixas e passagens devem ser coordenados antes de fechar placas. Alterações tardias obrigam a cortes e remendos.",
+    },
+    {
+      title: "Divisórias e isolamento",
+      content:
+        "Perfis, placas, lã mineral e reforços devem ser escolhidos de acordo com uso, acústica, cargas suspensas e resistência necessária.",
+    },
+  ],
+  "seguros-ruturas-infiltracoes": [
+    {
+      title: "Quando chamar cada especialidade",
+      content:
+        "Canalizador para fuga ou rede, impermeabilizador para cobertura/terraço, pedreiro para abertura e regularização, pintor para acabamento e secagem validada.",
+    },
+  ],
+  remodelacao: [
+    {
+      title: "Proteção em obra habitada",
+      content:
+        "Quando há zonas a manter, devem ser protegidos pavimentos, móveis, passagens e partes comuns. Esta preparação reduz danos e melhora a organização da obra.",
+    },
+  ],
+};
+
 const serviceVisuals = {
   construcao: {
     image: workImages.construcaoEstrutura.src,
@@ -559,13 +764,15 @@ const serviceVisuals = {
 };
 
 export const services = serviceBase.map((service) => {
+  const editorial = serviceEditorialOverrides[service.slug] || {};
+  const finalService = { ...service, ...editorial };
   const profile = technicalProfiles[service.slug];
   const visual = serviceVisuals[service.slug] || {};
   return {
-    ...service,
-    shortTitle: service.title,
-    excerpt: service.short,
-    introduction: service.intro,
+    ...finalService,
+    shortTitle: finalService.title,
+    excerpt: finalService.short,
+    introduction: finalService.intro,
     problems: profile.problems,
     benefits: profile.benefits,
     process: [
@@ -577,11 +784,18 @@ export const services = serviceBase.map((service) => {
     ],
     materials: profile.materials,
     limitations: profile.limitations,
+    budgetFactors: serviceBudgetFactors[service.slug] || [
+      "Área e estado atual do espaço",
+      "Acessos, proteções e demolições",
+      "Materiais, equipamentos e nível de acabamento",
+      "Especialidades envolvidas, urgência e IVA",
+    ],
     faqs: [
+      ...(serviceSpecificFaqs[service.slug] || []),
       {
-        question: `Como é calculado o orçamento de ${service.title.toLowerCase()}?`,
+        question: `Como é calculado o orçamento de ${finalService.title.toLowerCase()}?`,
         answer:
-          "O valor depende da área, estado atual, materiais, acessos e complexidade técnica. A calculadora apresenta apenas uma referência; a proposta final exige informação detalhada e, quando necessário, visita.",
+          "O valor depende da área, estado atual, materiais, acessos, demolições, resíduos, especialidades, urgência e IVA. A calculadora apresenta apenas uma referência; a proposta final exige informação detalhada e, quando necessário, visita.",
       },
       {
         question: "É possível combinar este trabalho com outras especialidades?",
@@ -599,11 +813,11 @@ export const services = serviceBase.map((service) => {
     calculatorService: calculatorMap[service.slug] || null,
     image: visual.image || "/hero-aureon.webp",
     gallery: visual.gallery || [],
-    detailSections: visual.detailSections || [],
-    seoTitle: `${service.title} | Aureon Construção`,
-    seoDescription: `${service.headline}. Avaliação e orçamento para trabalhos em Lisboa, Setúbal, Alentejo e Algarve.`,
+    detailSections: [...(visual.detailSections || []), ...(additionalDetailSections[service.slug] || [])],
+    seoTitle: `${finalService.title} | Aureon Construção`,
+    seoDescription: `${finalService.headline}. Avaliação e orçamento para trabalhos em Lisboa, Setúbal, Alentejo e Algarve.`,
     status: "published",
-    updatedAt: "2026-07-03",
+    updatedAt: "2026-07-09",
   };
 });
 

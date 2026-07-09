@@ -5,7 +5,7 @@ import Icon from "@/components/Icon";
 
 export const metadata = {
   title: "Calculadora de Orçamento",
-  description: "Obtenha uma estimativa rápida para a sua obra e peça uma avaliação detalhada à Aureon Construção.",
+  description: "Obtenha uma estimativa indicativa e envie o pedido para análise técnica pela Aureon Construção.",
   alternates: { canonical: "/orcamento" },
 };
 
@@ -14,8 +14,8 @@ export default function QuotePage() {
     <>
       <PageHero
         eyebrow="Orçamento"
-        title="Uma primeira estimativa em poucos segundos"
-        text="Escolha o serviço e indique a área. Mostramos referências Standard e Premium para ajudar a enquadrar o projeto."
+        title="Uma estimativa indicativa para preparar o pedido"
+        text="Escolha o serviço, indique a área e envie os dados para análise. A calculadora ajuda a enquadrar, mas não substitui visita técnica nem orçamento detalhado."
         breadcrumbs={[{ label: "Orçamento", href: "/orcamento" }]}
       />
       <section className="section-space">
@@ -25,8 +25,8 @@ export default function QuotePage() {
         <div className="container-shell grid gap-5 md:grid-cols-3">
           {[
             ["ruler", "Medição", "A área e o estado atual do local influenciam diretamente a estimativa."],
-            ["layers", "Materiais", "A seleção de materiais define o nível Standard ou Premium."],
-            ["shield", "Avaliação final", "A visita técnica confirma soluções, quantidades, acessos e prazo."],
+            ["layers", "Materiais e demolições", "Materiais, resíduos, demolições e especialidades alteram o valor final."],
+            ["shield", "Avaliação final", "O orçamento final é confirmado após análise do pedido, acessos, urgência, IVA e condições reais."],
           ].map(([icon, title, text]) => (
             <div key={title} className="rounded-2xl border border-ink/10 p-7">
               <Icon name={icon} className="h-8 w-8 text-gold" />

@@ -29,6 +29,12 @@ export default function ContactForm({
   initialService = "",
   initialRegion = "",
   estimate = "",
+  source = "",
+  calculatorService = "",
+  calculatorArea = "",
+  calculatorLevel = "",
+  calculatorSpace = "",
+  calculatorCondition = "",
 }) {
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
@@ -77,14 +83,14 @@ export default function ContactForm({
       if (response.status === 503) {
         setStatus("fallback");
         setFallbackHref(buildWhatsappHref(data));
-        setMessage("O email está temporariamente indisponível. Pode enviar o mesmo pedido pelo WhatsApp.");
+        setMessage("O envio por e-mail não foi concluído. Pode enviar o mesmo pedido pelo WhatsApp.");
         return;
       }
       throw new Error(result.message || "Não foi possível enviar o pedido.");
     } catch (error) {
       setStatus("error");
       setFallbackHref(buildWhatsappHref(data));
-      setMessage(error.message || "Não foi possível enviar. Pode tentar novamente ou enviar pelo WhatsApp.");
+      setMessage(error.message || "O envio por e-mail não foi concluído. Pode enviar o mesmo pedido pelo WhatsApp.");
     }
   }
 
@@ -97,6 +103,12 @@ export default function ContactForm({
           <input name="company_website" tabIndex="-1" autoComplete="off" />
         </label>
       </div>
+      <input type="hidden" name="source" value={source} />
+      <input type="hidden" name="calculatorService" value={calculatorService} />
+      <input type="hidden" name="calculatorArea" value={calculatorArea} />
+      <input type="hidden" name="calculatorLevel" value={calculatorLevel} />
+      <input type="hidden" name="calculatorSpace" value={calculatorSpace} />
+      <input type="hidden" name="calculatorCondition" value={calculatorCondition} />
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="field-label">Nome *
           <input name="name" required minLength="2" maxLength="100" autoComplete="name" className="field" placeholder="O seu nome" />
@@ -192,7 +204,7 @@ export default function ContactForm({
         )}
       </div>
       <p className="mt-5 text-xs leading-5 text-ink/40">
-        Também pode contactar-nos pelo telefone {site.phone} ou por {site.email}.
+        Também pode contactar-nos pelo telefone {site.phone} ou pelo e-mail {site.email}.
       </p>
     </form>
   );

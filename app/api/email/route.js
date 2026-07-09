@@ -75,6 +75,12 @@ export async function POST(request) {
     const service = text(form.get("service"), 100);
     const description = text(form.get("description"), 5000);
     const consent = text(form.get("consent"), 20);
+    const source = text(form.get("source"), 50) || "formulario";
+    const calculatorService = text(form.get("calculatorService"), 150);
+    const calculatorArea = text(form.get("calculatorArea"), 50);
+    const calculatorLevel = text(form.get("calculatorLevel"), 80);
+    const calculatorSpace = text(form.get("calculatorSpace"), 80);
+    const calculatorCondition = text(form.get("calculatorCondition"), 80);
 
     if (
       name.length < 2 ||
@@ -132,12 +138,23 @@ export async function POST(request) {
       replyTo: email || undefined,
       subject: `Novo pedido de orçamento - ${service}`,
       text: [
+        `Origem: ${source === "calculadora" ? "calculadora" : "formulário"}`,
         `Nome: ${name}`,
         `Telefone: ${phone}`,
         `Email: ${email || "Não indicado"}`,
         `Local: ${location}`,
         `Região: ${region || "Não indicada"}`,
         `Serviço: ${service}`,
+        ...(source === "calculadora"
+          ? [
+              `Serviço na calculadora: ${calculatorService || "Não indicado"}`,
+              `Área/m²: ${calculatorArea || "Não indicada"}`,
+              `Nível escolhido: ${calculatorLevel || "Não indicado"}`,
+              `Tipo de espaço: ${calculatorSpace || "Não indicado"}`,
+              `Estado escolhido: ${calculatorCondition || "Não indicado"}`,
+              `Anexos: ${files.length}`,
+            ]
+          : [`Anexos: ${files.length}`]),
         "",
         description,
       ].join("\n"),

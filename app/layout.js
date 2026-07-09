@@ -14,10 +14,10 @@ export const metadata = {
     template: "%s | Aureon Construção",
   },
   description:
-    "Construção, remodelações, microcimento, capoto, eletricidade, canalização, telhados e impermeabilização em Lisboa, Setúbal, Alentejo e Algarve.",
+    "Remodelações, reparações, infiltrações, telhados, cozinhas e casas de banho com coordenação técnica em Lisboa, Setúbal, Alentejo e Algarve.",
   openGraph: {
     title: "Aureon Construção",
-    description: "Obras com qualidade, organização e acompanhamento técnico.",
+    description: "Obras coordenadas com rigor, documentação fotográfica quando aplicável e acompanhamento técnico.",
     url: site.url,
     siteName: site.name,
     locale: "pt_PT",
@@ -27,7 +27,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Aureon Construção",
-    description: "Construção, remodelação e coordenação de especialidades.",
+    description: "Remodelações, reparações e intervenções técnicas coordenadas por especialidade.",
     images: ["/hero-aureon.webp"],
   },
   verification: site.analytics.googleSiteVerification

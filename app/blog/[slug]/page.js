@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FaqSection from "@/components/FaqSection";
 import RelatedArticles from "@/components/RelatedArticles";
@@ -119,6 +120,10 @@ export default function ArticlePage({ params }) {
               condomínio ou instalações técnicas devem ser confirmadas com profissionais
               e entidades competentes antes da execução.
             </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Link href="/orcamento" className="button button-dark">Calcular estimativa</Link>
+              <Link href="/contactos#formulario" className="button button-ghost">Enviar detalhes da obra</Link>
+            </div>
           </aside>
         </div>
         <JsonLd data={schema} />

@@ -19,14 +19,14 @@ export default function PortfolioPage() {
     <>
       <PageHero
         eyebrow="Portfólio"
-        title={hasRealProjects ? "Projetos reais da Aureon Construção" : "Tipos de projetos que executamos"}
+        title={hasRealProjects ? "Obras reais documentadas pela Aureon" : "Tipos de projetos que executamos"}
         text={
           hasRealProjects
-            ? "Casos documentados com fotografias e informação confirmada."
+            ? "Registos de intervenções com fotografias reais, apresentados de forma prudente e sem identificar cliente ou localização quando esses dados não estão confirmados."
             : "O arquivo de obras reais ainda está a ser preparado. Os exemplos abaixo descrevem âmbitos de trabalho e não são apresentados como obras concluídas."
         }
         breadcrumbs={[{ label: "Portfólio", href: "/portfolio" }]}
-        action={{ label: "Falar sobre o meu projeto", href: "/contactos#formulario" }}
+        action={{ label: "Enviar detalhes da minha obra", href: "/contactos#formulario" }}
       />
       <JsonLd data={{
         "@context": "https://schema.org",
@@ -41,6 +41,12 @@ export default function PortfolioPage() {
       }} />
       <section className="section-space bg-mist/55">
         <div className="container-shell">
+          {hasRealProjects && (
+            <div className="mb-8 rounded-2xl border border-ink/10 bg-white p-6 text-sm leading-7 text-ink/60">
+              <strong className="block text-ink">Nota de privacidade</strong>
+              Os projetos reais publicados não apresentam preço, duração, área, ano, cliente ou localização quando esses dados não estão confirmados para publicação.
+            </div>
+          )}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {visibleItems.map((project) => (
               <ProjectCard key={project.slug} project={project} link={hasRealProjects} />
@@ -56,7 +62,7 @@ export default function PortfolioPage() {
           )}
         </div>
       </section>
-      <ContactCta title="Tem um projeto semelhante?" />
+      <ContactCta title="Tem uma intervenção semelhante?" />
     </>
   );
 }

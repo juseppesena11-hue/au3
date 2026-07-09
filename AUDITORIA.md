@@ -1,7 +1,7 @@
 # Auditoria técnica e de conteúdo
 
 Data inicial: 3 de julho de 2026  
-Atualização incremental: 8 de julho de 2026
+Atualização incremental: 9 de julho de 2026
 
 ## Estado preservado
 
@@ -51,6 +51,20 @@ Não foi feito redesign, não foram removidas rotas e não foram publicados draf
 - `.env.example` atualizado para os dados reais e variáveis vazias de SMTP.
 - Sitemap atualizado para refletir projetos reais publicados e `updatedAt`.
 - README, checklist e conteúdo pendente atualizados.
+
+## Alterações executadas na atualização de 9 de julho de 2026
+
+- Home refinada para reduzir aparência de catálogo/template, com entrada por problema, processo de trabalho, documentação fotográfica e orientação sobre visita técnica.
+- Hero atualizado para posicionar a Aureon como coordenação de obras, diagnóstico e execução por especialidade.
+- Páginas de serviço passaram a mostrar quando o serviço é necessário, como é executado, fatores que influenciam orçamento, FAQs específicas e projetos reais relacionados quando existem.
+- Serviços prioritários receberam textos mais técnicos e menos genéricos.
+- Portfólio real passou a apresentar nota de privacidade, pontos técnicos e resultado visível documentado, sem publicar campos não confirmados.
+- Calculadora reforçada com aviso de estimativa indicativa, urgência/IVA/estado do imóvel e envio estruturado de dados para o formulário.
+- Formulário preservado; mensagens de fallback WhatsApp ajustadas sem alterar SMTP ou variáveis.
+- CTAs ajustados para “enviar detalhes da obra”, “enviar pedido” e “enviar pelo WhatsApp”.
+- Artigos passaram a ligar diretamente para calculadora e formulário a partir do template.
+- Página Sobre nós refinada para explicar diagnóstico, coordenação e revisão sem promessas vagas.
+- Metadata geral refinada para refletir remodelações, reparações e coordenação técnica.
 
 ## Observações sobre fotografias
 

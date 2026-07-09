@@ -43,12 +43,12 @@ export default function Calculator({ defaultService = "microcimento", compact = 
 
   const estimate = useMemo(() => {
     if (fixed) {
-      return `Estimativa indicativa para ${service}: ${fixed.map(([label, value]) => `${label} ${value}`).join("; ")}. Região: ${region || "não indicada"}. Não substitui visita técnica; o valor final depende de orçamento detalhado. IVA e condições fiscais a confirmar no orçamento.`;
+      return `Origem: calculadora. Estimativa indicativa para ${service}: ${fixed.map(([label, value]) => `${label} ${value}`).join("; ")}. Região: ${region || "não indicada"}. Não substitui visita técnica; o valor final depende de estado do imóvel, acessos, materiais, demolições, resíduos, especialidades, urgência e IVA. O orçamento final é confirmado após análise do pedido.`;
     }
     if (!selected || !result) return "";
     const value = finish === "premium" ? result.premium : result.standard;
     const finishLabel = finish === "premium" ? "Premium" : "Standard";
-    return `Estimativa indicativa: ${selected.label}, ${area} m², ${finishLabel}, ${money.format(value)}. Espaço: ${space}. Estado: ${condition}. Região: ${region || "não indicada"}. Não substitui visita técnica; o valor final depende de orçamento detalhado. IVA e condições fiscais a confirmar no orçamento.`;
+    return `Origem: calculadora. Estimativa indicativa: ${selected.label}, ${area} m², nível ${finishLabel}, ${money.format(value)}. Espaço: ${space}. Estado: ${condition}. Região: ${region || "não indicada"}. Não substitui visita técnica; o valor final depende de estado do imóvel, acessos, materiais, demolições, resíduos, especialidades, urgência e IVA. O orçamento final é confirmado após análise do pedido.`;
   }, [fixed, selected, result, finish, area, space, condition, region, service]);
 
   function calculate(event) {
@@ -66,7 +66,21 @@ export default function Calculator({ defaultService = "microcimento", compact = 
   const serviceSlug =
     selected?.serviceSlug ||
     (service === "cozinhas" ? "cozinhas" : service === "casas-de-banho" ? "casas-de-banho" : "");
-  const contactHref = `/contactos?servico=${encodeURIComponent(serviceSlug)}&regiao=${encodeURIComponent(region)}&estimativa=${encodeURIComponent(estimate)}#formulario`;
+  const contactParams = new URLSearchParams();
+  if (serviceSlug) contactParams.set("servico", serviceSlug);
+  if (region) contactParams.set("regiao", region);
+  contactParams.set("origem", "calculadora");
+  contactParams.set("calcServico", selected?.label || service);
+  if (!fixed) {
+    contactParams.set("area", String(area));
+    contactParams.set("nivel", finish === "premium" ? "Premium" : "Standard");
+    contactParams.set("espaco", space);
+    contactParams.set("estado", condition);
+  } else {
+    contactParams.set("nivel", "Projeto completo");
+  }
+  contactParams.set("estimativa", estimate);
+  const contactHref = `/contactos?${contactParams.toString()}#formulario`;
   const whatsappHref = `${site.whatsappBase}?text=${encodeURIComponent(`Olá Aureon.\n${estimate}`)}`;
 
   return (
@@ -80,6 +94,9 @@ export default function Calculator({ defaultService = "microcimento", compact = 
           <h2 className="text-2xl font-bold text-ink">Calcule um enquadramento inicial</h2>
         </div>
       </div>
+      <p className="mb-6 max-w-3xl text-sm leading-6 text-ink/60">
+        Esta ferramenta não substitui visita técnica. Serve para organizar uma referência inicial antes de enviar descrição, localização e fotografias para análise.
+      </p>
 
       <form onSubmit={calculate} className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         <label className="field-label">
@@ -158,7 +175,7 @@ export default function Calculator({ defaultService = "microcimento", compact = 
 
       <div className="mt-6 rounded-xl border border-ink/10 bg-white p-5 text-sm leading-6 text-ink/60">
         <strong className="block text-ink">Estimativa indicativa — não é preço fechado.</strong>
-        {site.pricing.disclaimer} O valor final depende de orçamento detalhado.{" "}
+        {site.pricing.disclaimer}{" "}
         {site.pricing.vatIncluded === true
           ? "IVA incluído nos valores apresentados."
           : site.pricing.vatIncluded === false

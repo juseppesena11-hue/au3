@@ -9,7 +9,7 @@ export default function StickyMobileCta() {
         <Icon name="phone" className="h-4 w-4" /> Ligar
       </a>
       <Link href="/contactos#formulario" className="button button-primary min-h-[44px] px-3">
-        Pedir orçamento
+        Enviar pedido
       </Link>
     </div>
   );

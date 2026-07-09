@@ -1,5 +1,23 @@
 # Checklist de publicação
 
+## Antes de ligar domínio `aureon.pt`
+
+- [ ] Testar formulário sem anexos.
+- [ ] Testar formulário com até 3 imagens.
+- [ ] Testar fallback WhatsApp.
+- [ ] Testar calculadora e envio da estimativa para o formulário.
+- [ ] Testar mobile em iPhone/Android.
+- [ ] Testar menu, CTA móvel, footer e galerias.
+- [ ] Testar portfólio e confirmar que só aparecem projetos reais publicados.
+- [ ] Verificar email correto: `juseppesena11@gmail.com`.
+- [ ] Verificar páginas legais sem placeholders públicos.
+- [ ] Verificar `sitemap.xml`.
+- [ ] Verificar `robots.txt`.
+- [ ] Confirmar que não há placeholders públicos.
+- [ ] Confirmar que não há projetos fictícios publicados.
+- [ ] Confirmar que drafts continuam fora do sitemap.
+- [ ] Confirmar deploy Vercel sem erro.
+
 ## Conteúdo e legal
 
 - [ ] Nome jurídico final confirmado.

@@ -44,7 +44,7 @@ export default function Header() {
             </Link>
           ))}
           <a href={site.whatsapp} target="_blank" rel="noreferrer" className="button button-primary py-3">
-            Pedir orçamento
+            Enviar pedido
           </a>
         </nav>
         <button
@@ -72,7 +72,7 @@ export default function Header() {
               </Link>
             ))}
             <a href={site.whatsapp} target="_blank" rel="noreferrer" className="button button-primary mt-5">
-              Pedir orçamento
+              Enviar pedido pelo WhatsApp
             </a>
           </div>
         </nav>

@@ -260,6 +260,90 @@ const realProjects = [
   },
 ];
 
+const projectEnhancements = {
+  "reparacao-telhado-telha-ceramica": {
+    technicalPoints: [
+      "Observação de zonas expostas da cobertura",
+      "Atenção a remates e encontros onde a água pode entrar",
+      "Registo fotográfico sem identificação de cliente ou localização",
+    ],
+    result:
+      "A cobertura ficou apresentada com telha cerâmica revista e acabamento exterior documentado nas fotografias disponíveis.",
+  },
+  "claraboia-acabamento-interior": {
+    technicalPoints: [
+      "Integração da claraboia no teto existente",
+      "Regularização do vão e preparação do suporte",
+      "Acabamento interior pintado",
+    ],
+    result:
+      "A claraboia ficou integrada no interior, com remate visual limpo e zona envolvente regularizada.",
+  },
+  "reparacao-infiltracao-teto": {
+    technicalPoints: [
+      "Registo do estado inicial antes da reposição",
+      "Preparação e regularização da superfície afetada",
+      "Acabamento pintado após intervenção",
+    ],
+    result:
+      "A zona visível do teto foi reposta e pintada, mantendo no portfólio o registo antes/depois da intervenção.",
+  },
+  "remodelacao-casa-banho-revestimento-duche": {
+    technicalPoints: [
+      "Preparação de suporte para revestimento",
+      "Execução da zona de duche",
+      "Integração de resguardo em vidro e acabamentos",
+    ],
+    result:
+      "A casa de banho apresenta zona de duche concluída, revestimento aplicado e acabamento final documentado.",
+  },
+  "estrutura-betao-construcao": {
+    technicalPoints: [
+      "Organização de fase estrutural",
+      "Execução de elementos em betão",
+      "Preparação para fases posteriores da obra",
+    ],
+    result:
+      "O registo documenta a fase de estrutura, sem publicar dados de localização, cliente, prazo ou área.",
+  },
+  "remodelacao-cozinha-pintura-acabamentos": {
+    technicalPoints: [
+      "Demolição/preparação localizada",
+      "Proteção de elementos existentes",
+      "Pintura, iluminação embutida e acabamento final",
+    ],
+    result:
+      "A cozinha ficou renovada com superfícies tratadas, iluminação integrada e mobiliário finalizado.",
+  },
+  "remodelacao-interior-pavimento-iluminacao": {
+    technicalPoints: [
+      "Coordenação entre pladur, pavimento, pintura e iluminação",
+      "Preparação de paredes e tetos",
+      "Revisão de acabamentos interiores",
+    ],
+    result:
+      "O interior ficou visualmente unificado, com pavimento claro, pintura e iluminação embutida documentados.",
+  },
+  "casa-banho-revestimento-marmore-duche-vidro": {
+    technicalPoints: [
+      "Revestimento de grande impacto visual",
+      "Integração de duche e resguardo em vidro",
+      "Compatibilização de loiças, móvel e iluminação",
+    ],
+    result:
+      "A casa de banho ficou concluída com revestimento tipo mármore, duche, vidro e acabamento final.",
+  },
+  "open-space-cozinha-sala-iluminacao": {
+    technicalPoints: [
+      "Integração visual entre cozinha e sala",
+      "Iluminação embutida e pavimento claro",
+      "Acabamentos interiores coordenados",
+    ],
+    result:
+      "O espaço ficou organizado em open space, com cozinha integrada, zona de estar e leitura visual contínua.",
+  },
+};
+
 // Estes registos representam tipos de trabalho e não obras reais confirmadas.
 // Para publicar um novo caso de estudo: preencher os campos, usar fotografias próprias,
 // definir isReal: true e status: "published".
@@ -392,7 +476,12 @@ const draftProjects = [
   },
 ];
 
-export const projects = [...realProjects, ...draftProjects];
+const enhancedRealProjects = realProjects.map((project) => ({
+  ...project,
+  ...(projectEnhancements[project.slug] || {}),
+}));
+
+export const projects = [...enhancedRealProjects, ...draftProjects];
 
 export const publishedProjects = projects.filter(
   (project) => project.status === "published" && project.isReal

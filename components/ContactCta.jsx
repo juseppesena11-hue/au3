@@ -15,8 +15,8 @@ export default function ContactCta({ title = "Vamos analisar o seu projeto?", te
           <p className="mt-3 text-white/75">{text}</p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href={href} className="button button-light">Pedir orçamento <Icon name="arrow" className="h-4 w-4" /></Link>
-          <a href={site.whatsapp} target="_blank" rel="noreferrer" className="button border border-white/40 text-white hover:bg-white hover:text-ink">WhatsApp</a>
+          <Link href={href} className="button button-light">Enviar detalhes da obra <Icon name="arrow" className="h-4 w-4" /></Link>
+          <a href={site.whatsapp} target="_blank" rel="noreferrer" className="button border border-white/40 text-white hover:bg-white hover:text-ink">Enviar pelo WhatsApp</a>
         </div>
       </div>
     </section>

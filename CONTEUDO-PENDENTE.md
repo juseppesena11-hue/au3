@@ -59,7 +59,11 @@ Já existem fotografias reais para:
 - Novas páginas municipais.
 - Artigos longos adicionais.
 - Área do cliente.
-- Organização completa do arquivo fotográfico.
+- Organização completa do arquivo fotográfico, incluindo o arquivo grande com cerca de 32 mil fotos, apenas numa fase própria.
+- Estudos de caso completos por obra real.
+- Testemunhos reais com autorização.
+- Mais fotos por especialidade.
+- Páginas municipais reais, com conteúdo e cobertura confirmados.
 
 ## Fotografias ainda necessárias
 

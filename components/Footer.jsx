@@ -12,8 +12,8 @@ export default function Footer() {
         <div>
           <Logo inverted />
           <p className="mt-5 max-w-sm text-sm leading-7 text-white/65">
-            Construção, remodelação e especialidades técnicas com gestão completa,
-            profissionais por especialidade e acompanhamento do início ao fim.
+            Remodelações, reparações e intervenções técnicas com coordenação das especialidades,
+            documentação fotográfica quando aplicável e comunicação clara com o cliente.
           </p>
           <div className="mt-6 flex gap-2 text-xs font-bold uppercase tracking-[.16em] text-gold">
             {publishedRegions.map((region) => region.name).join(" · ")}

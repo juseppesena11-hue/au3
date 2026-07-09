@@ -20,7 +20,7 @@ export const site = {
   pricing: {
     vatIncluded: null,
     disclaimer:
-      "Estimativa indicativa, não vinculativa. Não substitui visita técnica. O valor final depende de orçamento detalhado, área, estado do imóvel, acessos, materiais, demolições, resíduos, especialidades, IVA e condições de execução.",
+      "Estimativa indicativa, não vinculativa. Não substitui visita técnica. O valor final depende de orçamento detalhado, área, estado do imóvel, acessos, materiais, demolições, resíduos, especialidades, urgência, IVA e condições de execução. O orçamento final é confirmado após análise do pedido.",
   },
   social: {},
   analytics: {

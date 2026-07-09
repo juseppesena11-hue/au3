@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import Icon from "@/components/Icon";
 import Calculator from "@/components/Calculator";
+import ProjectCard from "@/components/ProjectCard";
 import BenefitsGrid from "@/components/BenefitsGrid";
 import ProcessSteps from "@/components/ProcessSteps";
 import ProjectGallery from "@/components/ProjectGallery";
@@ -14,6 +15,7 @@ import ContactCta from "@/components/ContactCta";
 import JsonLd from "@/components/JsonLd";
 import { publishedServices, getService } from "@/data/services";
 import { publishedSubservices, getSubservice } from "@/data/subservices";
+import { publishedProjects } from "@/data/portfolio";
 import { site } from "@/data/site";
 
 function getAnyService(slug) {
@@ -50,6 +52,18 @@ export default function ServicePage({ params }) {
   const service = getAnyService(params.slug);
   if (!service) notFound();
   const parent = service.parentService ? getService(service.parentService) : null;
+  const budgetFactors = service.budgetFactors || [
+    "área e estado atual do espaço",
+    "acessos, proteções e demolições",
+    "materiais, equipamentos e nível de acabamento",
+    "especialidades envolvidas, urgência e IVA",
+  ];
+  const relatedProjects = publishedProjects
+    .filter((project) =>
+      project.relatedServices?.includes(service.slug) ||
+      (parent ? project.relatedServices?.includes(parent.slug) : false)
+    )
+    .slice(0, 3);
   const breadcrumbs = [
     { label: "Serviços", href: "/servicos" },
     ...(parent ? [{ label: parent.title, href: `/servicos/${parent.slug}` }] : []),
@@ -74,7 +88,7 @@ export default function ServicePage({ params }) {
         text={service.introduction}
         breadcrumbs={breadcrumbs}
         action={{
-          label: "Pedir avaliação",
+          label: "Enviar detalhes da obra",
           href: `/contactos?servico=${service.slug}#formulario`,
         }}
       />
@@ -84,8 +98,8 @@ export default function ServicePage({ params }) {
         <div className="container-shell grid gap-14 lg:grid-cols-[1.2fr_.8fr]">
           <div className="space-y-14">
             <section>
-              <p className="eyebrow">Necessidades</p>
-              <h2 className="heading-md mt-3">Problemas que este serviço ajuda a resolver</h2>
+              <p className="eyebrow">Quando é necessário</p>
+              <h2 className="heading-md mt-3">Sinais e situações em que este serviço faz sentido</h2>
               <ul className="mt-7 grid gap-4 sm:grid-cols-2">
                 {service.problems.map((item) => (
                   <li key={item} className="flex gap-3 rounded-xl bg-sand/50 p-5">
@@ -108,8 +122,11 @@ export default function ServicePage({ params }) {
               ))}
             </ul>
             <Link href={`/contactos?servico=${service.slug}#formulario`} className="button button-primary mt-7 w-full">
-              Pedir orçamento
+              Enviar pedido organizado
             </Link>
+            <p className="mt-4 text-xs leading-5 text-white/45">
+              Para uma resposta mais rápida, envie descrição, localização, fotografias e tipo de intervenção.
+            </p>
           </aside>
         </div>
       </section>
@@ -129,7 +146,7 @@ export default function ServicePage({ params }) {
         </section>
       )}
 
-      <ProcessSteps steps={service.process} />
+      <ProcessSteps steps={service.process} title="Como executamos e coordenamos este trabalho" />
 
       {service.detailSections?.length > 0 && (
         <section className="section-space">
@@ -149,7 +166,7 @@ export default function ServicePage({ params }) {
       )}
 
       <section className="section-space">
-        <div className="container-shell grid gap-10 lg:grid-cols-2">
+        <div className="container-shell grid gap-10 lg:grid-cols-3">
           <section>
             <p className="eyebrow">Materiais e soluções</p>
             <h2 className="heading-md mt-3">A escolha depende do suporte e da utilização</h2>
@@ -161,6 +178,21 @@ export default function ServicePage({ params }) {
                 </li>
               ))}
             </ul>
+          </section>
+          <section className="rounded-2xl border border-ink/10 bg-white p-7 md:p-9">
+            <p className="eyebrow">Orçamento</p>
+            <h2 className="mt-3 text-2xl font-bold">O que pode influenciar o valor</h2>
+            <ul className="mt-6 space-y-4">
+              {budgetFactors.map((item) => (
+                <li key={item} className="flex gap-3 text-sm leading-6 text-ink/65">
+                  <Icon name="check" className="mt-1 h-4 w-4 shrink-0 text-gold" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm leading-6 text-ink/50">
+              Cada obra é avaliada individualmente. O orçamento depende do estado real do imóvel e do nível de intervenção necessário.
+            </p>
           </section>
           <section className="rounded-2xl border border-gold/25 bg-gold/5 p-7 md:p-9">
             <p className="eyebrow">Cuidados técnicos</p>
@@ -178,6 +210,23 @@ export default function ServicePage({ params }) {
         <section className="section-space bg-mist/60">
           <div className="container-shell">
             <Calculator defaultService={service.calculatorService} compact />
+          </div>
+        </section>
+      )}
+
+      {relatedProjects.length > 0 && (
+        <section className="section-space">
+          <div className="container-shell">
+            <p className="eyebrow">Obras relacionadas</p>
+            <h2 className="heading-md mt-3">Projetos reais com trabalhos deste tipo</h2>
+            <p className="mt-5 max-w-3xl leading-7 text-ink/60">
+              As páginas de portfólio mostram fotografias reais e evitam publicar cliente, localização, preço, ano ou duração quando esses dados não estão confirmados.
+            </p>
+            <div className="mt-9 grid gap-5 md:grid-cols-3">
+              {relatedProjects.map((project) => (
+                <ProjectCard key={project.slug} project={project} />
+              ))}
+            </div>
           </div>
         </section>
       )}

@@ -2,6 +2,17 @@
 
 Site institucional em Next.js 14, React 18, JavaScript e Tailwind CSS para a Aureon Construção.
 
+## Estado atual de publicação
+
+O site está preparado como versão publicável incremental, sem redesign radical e sem alteração das rotas principais. A fase mais recente reforçou:
+
+- home orientada por problema e coordenação de obra;
+- páginas de serviço com fatores de orçamento, FAQs específicas e obras reais relacionadas;
+- portfólio real com estrutura de estudo prudente;
+- calculadora com aviso claro de estimativa indicativa e passagem de dados para o formulário;
+- CTAs mais orientados para envio de detalhes/fotografias;
+- documentação e checklist antes de ligar `aureon.pt`.
+
 ## Requisitos
 
 - Node.js 18.17 ou superior
@@ -131,6 +142,8 @@ O formulário aceita até 3 imagens JPEG, PNG ou WebP, com 4 MB por ficheiro. In
 - limite básico por IP;
 - fallback WhatsApp com link clicável.
 
+Quando o pedido vem da calculadora, o email inclui a origem, serviço selecionado na calculadora, área/m² quando aplicável, nível escolhido, tipo de espaço, estado indicado, estimativa e anexos.
+
 Não guardar dados pessoais em logs. Os anexos servem apenas para análise inicial do pedido.
 
 ## Calculadora
@@ -138,7 +151,8 @@ Não guardar dados pessoais em logs. Os anexos servem apenas para análise inici
 A calculadora apresenta estimativas indicativas, não preços fechados. O texto público deve manter claro:
 
 - não substitui visita técnica;
-- valores podem variar por estado do imóvel, acessos, materiais, demolições, resíduos, especialidades e IVA;
+- valores podem variar por estado do imóvel, acessos, materiais, demolições, resíduos, especialidades, urgência e IVA;
+- o orçamento final é confirmado após análise do pedido;
 - IVA e condições fiscais a confirmar no orçamento.
 
 Os preços da calculadora precisam de validação comercial antes de publicação final.

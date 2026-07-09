@@ -15,15 +15,18 @@ export default function ContactPage({ searchParams }) {
     <>
       <PageHero
         eyebrow="Contactos"
-        title="Conte-nos o que quer transformar"
-        text="Quanto mais informação enviar, mais precisa será a nossa primeira avaliação. Pode anexar fotografias ou falar diretamente pelo WhatsApp."
+        title="Envie os detalhes da obra para uma primeira análise"
+        text="Descreva o problema ou intervenção, indique a localização e anexe fotografias. Quanto mais concreto for o pedido, mais útil será a primeira resposta."
         breadcrumbs={[{ label: "Contactos", href: "/contactos" }]}
       />
       <section className="section-space bg-mist/55">
         <div className="container-shell grid gap-8 lg:grid-cols-[.7fr_1.3fr]">
           <div className="rounded-2xl bg-ink p-8 text-white md:p-10">
             <p className="eyebrow">Fale connosco</p>
-            <h2 className="heading-md mt-4">Resposta rápida e comunicação clara</h2>
+            <h2 className="heading-md mt-4">Contacto direto, pedido organizado</h2>
+            <p className="mt-5 text-sm leading-7 text-white/60">
+              Para uma resposta mais rápida, envie descrição, fotografias, localização e tipo de intervenção. O telefone continua disponível para situações urgentes.
+            </p>
             <div className="mt-10 space-y-7">
               <a href={site.phoneHref} className="flex gap-4">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/10 text-gold"><Icon name="phone" /></span>
@@ -51,6 +54,12 @@ export default function ContactPage({ searchParams }) {
             initialService={searchParams?.servico || ""}
             initialRegion={searchParams?.regiao || ""}
             estimate={searchParams?.estimativa || ""}
+            source={searchParams?.origem || ""}
+            calculatorService={searchParams?.calcServico || ""}
+            calculatorArea={searchParams?.area || ""}
+            calculatorLevel={searchParams?.nivel || ""}
+            calculatorSpace={searchParams?.espaco || ""}
+            calculatorCondition={searchParams?.estado || ""}
           />
         </div>
       </section>

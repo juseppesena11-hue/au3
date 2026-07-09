@@ -15,8 +15,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="Sobre a Aureon"
-        title="Uma empresa responsável por toda a sua obra"
-        text="Experiência prática, coordenação eficiente e profissionais especializados em cada área."
+        title="Coordenação técnica para obras com várias especialidades"
+        text="A Aureon organiza remodelações, reparações e intervenções técnicas com diagnóstico inicial, planeamento, execução coordenada e revisão final."
         breadcrumbs={[{ label: "Sobre nós", href: "/sobre-nos" }]}
         action={{ label: "Conhecer os serviços", href: "/servicos" }}
       />
@@ -25,13 +25,13 @@ export default function AboutPage() {
           <div>
             <SectionHeading
               eyebrow="A nossa forma de trabalhar"
-              title="A técnica certa, coordenada por uma única equipa"
-              text="A Aureon executa e gere obras completas. A nossa força está na combinação entre experiência real de obra, comunicação clara e profissionais especializados."
+              title="Uma obra não é uma lista solta de serviços"
+              text="Cada intervenção exige sequência: perceber o problema, confirmar acessos, escolher materiais compatíveis, coordenar especialidades e rever o resultado antes da entrega."
             />
             <p className="mt-6 leading-8 text-ink/60">
               Eletricidade, canalização, pladur, pintura, capoto, microcimento,
               alvenaria, impermeabilização, telhados e exteriores são integrados
-              num plano único, com responsabilidade e acompanhamento.
+              num plano único, com responsabilidade, acompanhamento e documentação fotográfica quando aplicável.
             </p>
           </div>
           <div className="relative min-h-[480px] overflow-hidden rounded-2xl">
@@ -42,9 +42,9 @@ export default function AboutPage() {
       <section className="section-space bg-sand/55">
         <div className="container-shell grid gap-5 md:grid-cols-3">
           {[
-            ["ruler", "Missão", "Entregar obras sólidas, confiáveis e esteticamente cuidadas, com transparência e compromisso."],
-            ["star", "Visão", "Elevar o padrão de qualidade, atendimento e segurança no setor da construção em Portugal."],
-            ["shield", "Compromisso", "Coordenar todas as especialidades e responder pelo resultado final, do início à entrega."],
+            ["ruler", "Diagnóstico", "Analisar estado inicial, acessos, materiais existentes e especialidades necessárias antes de fechar o orçamento."],
+            ["star", "Coordenação", "Organizar equipas por fase para reduzir retrabalho, decisões tardias e falhas entre especialidades."],
+            ["shield", "Revisão", "Confirmar os trabalhos contratados, registar pontos relevantes e deixar claro o que foi executado."],
           ].map(([icon, title, text]) => (
             <article key={title} className="rounded-2xl bg-white p-8">
               <Icon name={icon} className="h-9 w-9 text-gold" />
@@ -59,11 +59,11 @@ export default function AboutPage() {
           <SectionHeading eyebrow="O diferencial" title="Não deixamos a coordenação por sua conta" center />
           <div className="mx-auto mt-12 grid max-w-5xl gap-x-14 gap-y-8 md:grid-cols-2">
             {[
-              "Profissionais experientes em cada especialidade",
-              "Avaliação detalhada e orçamento transparente",
+              "Profissionais organizados por especialidade",
+              "Avaliação do estado real antes do orçamento final",
               "Planeamento de materiais, fases e equipas",
-              "Solução rápida para imprevistos de obra",
-              "Comunicação contínua com o cliente",
+              "Registo fotográfico quando aplicável",
+              "Comunicação clara com o cliente",
               "Verificação final dos trabalhos incluídos",
             ].map((item) => (
               <div key={item} className="flex items-start gap-4 border-b border-ink/10 pb-6">

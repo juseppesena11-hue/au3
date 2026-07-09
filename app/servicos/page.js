@@ -10,7 +10,7 @@ import { site } from "@/data/site";
 
 export const metadata = {
   title: "Serviços",
-  description: "Construção, remodelação, eletricidade, canalização, pinturas, pladur, microcimento, capoto, telhados e muito mais.",
+  description: "Serviços de remodelação, reparação e intervenção técnica organizados por especialidade pela Aureon Construção.",
   alternates: { canonical: "/servicos" },
 };
 
@@ -19,8 +19,8 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Serviços"
-        title="Todas as especialidades numa única empresa"
-        text="Obras novas, remodelações, reparações e intervenções técnicas em Lisboa, Setúbal, Alentejo e Algarve."
+        title="Especialidades coordenadas para obras reais"
+        text="Remodelações, reparações, infiltrações, telhados, cozinhas, casas de banho e acabamentos com avaliação do estado real do imóvel antes do orçamento final."
         breadcrumbs={[{ label: "Serviços", href: "/servicos" }]}
         action={{ label: "Calcular uma estimativa", href: "#calculadora" }}
       />
@@ -38,9 +38,9 @@ export default function ServicesPage() {
       <section className="section-space">
         <div className="container-shell">
           <SectionHeading
-            eyebrow="Soluções completas"
-            title="Do estrutural ao último acabamento"
-            text="Selecione um serviço para conhecer o processo, o que está incluído e obter uma estimativa inicial."
+            eyebrow="Serviços principais"
+            title="Da origem do problema ao acabamento"
+            text="Selecione um serviço para perceber quando faz sentido, como executamos, o que influencia o orçamento e que obras reais estão relacionadas."
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {publishedServices.map((service) => <ServiceCard key={service.slug} service={service} />)}
