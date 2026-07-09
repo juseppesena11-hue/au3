@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import StickyMobileCta from "@/components/StickyMobileCta";
 import JsonLd from "@/components/JsonLd";
+import { Analytics } from "@vercel/analytics/react";
 import { site } from "@/data/site";
 import { publishedRegions } from "@/data/regions";
 
@@ -98,6 +99,7 @@ export default function RootLayout({ children }) {
         <WhatsAppFloat />
         <StickyMobileCta />
         <JsonLd data={schema} />
+        <Analytics />
       </body>
     </html>
   );
