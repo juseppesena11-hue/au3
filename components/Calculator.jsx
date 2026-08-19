@@ -13,14 +13,17 @@ const money = new Intl.NumberFormat("pt-PT", {
   maximumFractionDigits: 0,
 });
 
-export default function Calculator({ defaultService = "microcimento", compact = false }) {
+export default function Calculator({ defaultService = "microcimento", defaultSpace = "interior", compact = false }) {
   const validDefault =
     areaPrices.some((item) => item.id === defaultService) || fixedPrices[defaultService]
       ? defaultService
       : "microcimento";
   const [service, setService] = useState(validDefault);
   const [area, setArea] = useState(50);
-  const [space, setSpace] = useState("interior");
+  const validDefaultSpace = calculatorOptions.spaces.some((item) => item.id === defaultSpace)
+    ? defaultSpace
+    : "interior";
+  const [space, setSpace] = useState(validDefaultSpace);
   const [condition, setCondition] = useState("bom");
   const [finish, setFinish] = useState("standard");
   const [region, setRegion] = useState("");

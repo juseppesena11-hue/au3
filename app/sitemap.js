@@ -31,7 +31,7 @@ export default function sitemap() {
     ...staticPages,
     ...[...publishedServices, ...publishedSubservices].map((service) =>
       entry(`/servicos/${service.slug}`, {
-        priority: service.parentService ? 0.75 : 0.85,
+        priority: service.slug === "capoto-etics" ? 0.95 : service.parentService ? 0.75 : 0.85,
         lastModified: service.updatedAt,
       })
     ),

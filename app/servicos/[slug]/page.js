@@ -13,6 +13,7 @@ import RegionLinks from "@/components/RegionLinks";
 import FaqSection from "@/components/FaqSection";
 import ContactCta from "@/components/ContactCta";
 import JsonLd from "@/components/JsonLd";
+import CapotoLanding from "@/components/CapotoLanding";
 import { publishedServices, getService } from "@/data/services";
 import { publishedSubservices, getSubservice } from "@/data/subservices";
 import { publishedProjects } from "@/data/portfolio";
@@ -79,6 +80,10 @@ export default function ServicePage({ params }) {
     areaServed: ["Lisboa", "Setúbal", "Alentejo", "Algarve"],
     serviceType: service.title,
   };
+
+  if (service.slug === "capoto-etics") {
+    return <CapotoLanding service={service} schema={schema} />;
+  }
 
   return (
     <>

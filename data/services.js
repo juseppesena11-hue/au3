@@ -130,10 +130,10 @@ const serviceBase = [
   {
     slug: "capoto-etics",
     title: "Capoto / ETICS",
-    short: "Isolamento térmico de fachadas para maior conforto e eficiência energética.",
-    headline: "Eficiência térmica e fachadas duradouras",
+    short: "Aplicação e reparação de isolamento térmico exterior em fachadas de moradias e prédios.",
+    headline: "Capoto em Lisboa e Setúbal",
     intro:
-      "Aplicamos sistemas ETICS com rigor técnico para melhorar o conforto, proteger fachadas e reduzir perdas energéticas.",
+      "Aplicamos e reparamos sistemas ETICS para melhorar o conforto térmico, proteger fachadas e limitar perdas de calor pela envolvente exterior.",
     includes: [
       "Aplicação completa de ETICS",
       "Reabilitação de fachadas",
@@ -142,8 +142,11 @@ const serviceBase = [
       "Acabamentos decorativos",
     ],
     trust:
-      "Reduz consumos, combate condensação, protege paredes e valoriza o imóvel.",
+      "O desempenho depende do suporte, espessura, continuidade do isolamento, fixação, remates e compatibilidade de todos os componentes.",
     icon: "shield",
+    seoTitle: "Capoto em Lisboa e Setúbal: aplicação e preço por m²",
+    seoDescription: "Aplicação e reparação de Capoto / ETICS em Lisboa e Setúbal. Isolamento térmico exterior para moradias e prédios, com avaliação e orçamento.",
+    updatedAt: "2026-08-20",
   },
   {
     slug: "telhados-impermeabilizacao",
@@ -453,6 +456,33 @@ const serviceBudgetFactors = {
 };
 
 const serviceSpecificFaqs = {
+  "capoto-etics": [
+    {
+      question: "Capoto e ETICS são a mesma coisa?",
+      answer:
+        "Capoto é o nome usado correntemente em Portugal para sistemas ETICS de isolamento térmico pelo exterior. O sistema inclui isolamento, colagem e fixação, camada de base com rede, perfis, primário e acabamento compatíveis.",
+    },
+    {
+      question: "Quanto custa aplicar Capoto por m²?",
+      answer:
+        "O preço por m² depende da área, estado da fachada, espessura e material isolante, andaimes, acessos, remates, acabamento e reparações prévias. A calculadora fornece apenas uma referência; o valor final exige informação detalhada e, quando necessário, visita.",
+    },
+    {
+      question: "O Capoto resolve humidade e condensação?",
+      answer:
+        "Pode ajudar a reduzir condensação superficial associada a paredes exteriores frias, mas não resolve infiltrações, fugas, humidade ascendente ou ventilação insuficiente. A origem deve ser diagnosticada antes.",
+    },
+    {
+      question: "É possível reparar Capoto já existente?",
+      answer:
+        "Sim, em muitos casos. Impactos, fissuras, zonas destacadas e remates degradados devem ser avaliados para perceber se basta uma reparação localizada ou se existe um problema mais abrangente no sistema.",
+    },
+    {
+      question: "Que isolamento pode ser usado num sistema ETICS?",
+      answer:
+        "Existem soluções com EPS, EPS grafite e lã mineral, entre outras previstas por sistemas certificados. A escolha e a espessura dependem do edifício, suporte, desempenho pretendido, reação ao fogo e enquadramento técnico aplicável.",
+    },
+  ],
   "telhados-impermeabilizacao": [
     {
       question: "Como saber se basta reparar ou é preciso intervir no telhado todo?",
@@ -814,10 +844,10 @@ export const services = serviceBase.map((service) => {
     image: visual.image || "/hero-aureon.webp",
     gallery: visual.gallery || [],
     detailSections: [...(visual.detailSections || []), ...(additionalDetailSections[service.slug] || [])],
-    seoTitle: `${finalService.title} | Aureon Construção`,
-    seoDescription: `${finalService.headline}. Avaliação e orçamento para trabalhos em Lisboa, Setúbal, Alentejo e Algarve.`,
+    seoTitle: finalService.seoTitle || `${finalService.title} | Aureon Construção`,
+    seoDescription: finalService.seoDescription || `${finalService.headline}. Avaliação e orçamento para trabalhos em Lisboa, Setúbal, Alentejo e Algarve.`,
     status: "published",
-    updatedAt: "2026-07-09",
+    updatedAt: finalService.updatedAt || "2026-07-09",
   };
 });
 

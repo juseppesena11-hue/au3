@@ -10,6 +10,7 @@ const links = [
   ["Início", "/"],
   ["Sobre nós", "/sobre-nos"],
   ["Serviços", "/servicos"],
+  ["Capoto / ETICS", "/servicos/capoto-etics"],
   ["Portfólio", "/portfolio"],
   ["Regiões", "/regioes"],
   ["Blog", "/blog"],
