@@ -1,6 +1,11 @@
 import nodemailer from "nodemailer";
 import { publishedServices } from "@/data/services";
 import { publishedSubservices } from "@/data/subservices";
+import {
+  clientConfirmationHtml,
+  clientConfirmationText,
+  leadNotificationHtml,
+} from "@/lib/emailTemplates";
 
 export const runtime = "nodejs";
 
@@ -132,36 +137,53 @@ export async function POST(request) {
       auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
     });
 
+    const recipient = process.env.CONTACT_TO || "juseppesena11@gmail.com";
+    const plainText = [
+      `Origem: ${source === "calculadora" ? "calculadora" : "formulário"}`,
+      `Nome: ${name}`,
+      `Telefone: ${phone}`,
+      `Email: ${email || "Não indicado"}`,
+      `Local: ${location}`,
+      `Região: ${region || "Não indicada"}`,
+      `Serviço: ${service}`,
+      ...(source === "calculadora"
+        ? [
+            `Serviço na calculadora: ${calculatorService || "Não indicado"}`,
+            `Área/m²: ${calculatorArea || "Não indicada"}`,
+            `Nível escolhido: ${calculatorLevel || "Não indicado"}`,
+            `Tipo de espaço: ${calculatorSpace || "Não indicado"}`,
+            `Estado escolhido: ${calculatorCondition || "Não indicado"}`,
+            `Anexos: ${files.length}`,
+          ]
+        : [`Anexos: ${files.length}`]),
+      "",
+      description,
+    ].join("\n");
     const delivery = await transporter.sendMail({
-      from: `"Site Aureon" <${process.env.SMTP_USER}>`,
-      to: process.env.CONTACT_TO || "juseppesena11@gmail.com",
+      from: `"Aureon Construção" <${process.env.SMTP_USER}>`,
+      to: recipient,
       replyTo: email || undefined,
-      subject: `Novo pedido de orçamento - ${service}`,
-      text: [
-        `Origem: ${source === "calculadora" ? "calculadora" : "formulário"}`,
-        `Nome: ${name}`,
-        `Telefone: ${phone}`,
-        `Email: ${email || "Não indicado"}`,
-        `Local: ${location}`,
-        `Região: ${region || "Não indicada"}`,
-        `Serviço: ${service}`,
-        ...(source === "calculadora"
-          ? [
-              `Serviço na calculadora: ${calculatorService || "Não indicado"}`,
-              `Área/m²: ${calculatorArea || "Não indicada"}`,
-              `Nível escolhido: ${calculatorLevel || "Não indicado"}`,
-              `Tipo de espaço: ${calculatorSpace || "Não indicado"}`,
-              `Estado escolhido: ${calculatorCondition || "Não indicado"}`,
-              `Anexos: ${files.length}`,
-            ]
-          : [`Anexos: ${files.length}`]),
-        "",
-        description,
-      ].join("\n"),
+      subject: `Novo pedido de orçamento — ${service}`,
+      text: plainText,
+      html: leadNotificationHtml({ name, phone, email, location, region, service, source, description }),
       attachments,
     });
     if (!delivery.accepted?.length) {
       throw new Error("O servidor de email não confirmou nenhum destinatário.");
+    }
+    if (email) {
+      try {
+        await transporter.sendMail({
+          from: `"Aureon Construção" <${process.env.SMTP_USER}>`,
+          to: email,
+          replyTo: recipient,
+          subject: "Recebemos o seu pedido | Aureon Construção",
+          text: clientConfirmationText({ name, service }),
+          html: clientConfirmationHtml({ name, service }),
+        });
+      } catch {
+        console.error("Falha ao enviar confirmação automática do pedido.");
+      }
     }
     return Response.json({ ok: true });
   } catch {
