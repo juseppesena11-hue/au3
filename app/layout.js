@@ -7,6 +7,7 @@ import JsonLd from "@/components/JsonLd";
 import { Analytics } from "@vercel/analytics/react";
 import { site } from "@/data/site";
 import { publishedRegions } from "@/data/regions";
+import ConversionTracker from "@/components/ConversionTracker";
 
 export const metadata = {
   metadataBase: new URL(site.url),
@@ -80,7 +81,6 @@ export default function RootLayout({ children }) {
           "@type": "AdministrativeArea",
           name,
         })),
-        openingHours: "Mo-Sa 08:00-19:00",
         parentOrganization: { "@id": `${site.url}/#organization` },
       },
       {
@@ -103,6 +103,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <WhatsAppFloat />
         <StickyMobileCta />
+        <ConversionTracker />
         <JsonLd data={schema} />
         <Analytics />
       </body>

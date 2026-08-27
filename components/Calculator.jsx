@@ -6,6 +6,7 @@ import { areaPrices, fixedPrices, assessmentServices, calculatorOptions } from "
 import { publishedRegions } from "@/data/regions";
 import { site } from "@/data/site";
 import Icon from "./Icon";
+import { track } from "@vercel/analytics";
 
 const money = new Intl.NumberFormat("pt-PT", {
   style: "currency",
@@ -27,7 +28,6 @@ export default function Calculator({ defaultService = "microcimento", defaultSpa
     : "interior";
   const [space, setSpace] = useState(validDefaultSpace);
   const [condition, setCondition] = useState("bom");
-  const [finish, setFinish] = useState("standard");
   const [region, setRegion] = useState("");
   const [calculated, setCalculated] = useState(true);
   const [copied, setCopied] = useState(false);
@@ -42,8 +42,9 @@ export default function Calculator({ defaultService = "microcimento", defaultSpa
     const conditionFactor = calculatorOptions.conditions.find((item) => item.id === condition)?.factor || 1;
     const factor = spaceFactor * conditionFactor;
     return {
-      standard: safeArea * selected.standard * factor,
-      premium: safeArea * selected.premium * factor,
+      minimum: safeArea * selected.minimum * factor,
+      reference: safeArea * selected.reference * factor,
+      maximum: safeArea * selected.maximum * factor,
     };
   }, [selected, area, space, condition]);
 
@@ -55,15 +56,18 @@ export default function Calculator({ defaultService = "microcimento", defaultSpa
       return `Origem: calculadora. Pedido de avaliação para ${assessment.label}. Região: ${region || "não indicada"}. ${assessment.reason} O orçamento final é confirmado após análise do pedido.`;
     }
     if (!selected || !result) return "";
-    const value = finish === "premium" ? result.premium : result.standard;
-    const finishLabel = finish === "premium" ? "Premium" : "Standard";
-    return `Origem: calculadora. Estimativa indicativa: ${selected.label}, ${area} m², nível ${finishLabel}, ${money.format(value)}. Espaço: ${space}. Estado: ${condition}. Região: ${region || "não indicada"}. Não substitui visita técnica; o valor final depende de estado do imóvel, acessos, materiais, demolições, resíduos, especialidades, urgência e IVA. O orçamento final é confirmado após análise do pedido.`;
-  }, [fixed, assessment, selected, result, finish, area, space, condition, region, service]);
+    return `Origem: calculadora. Estimativa indicativa: ${selected.label}, ${area} m², faixa entre ${money.format(result.minimum)} e ${money.format(result.maximum)}, referência média ${money.format(result.reference)}. Espaço: ${space}. Estado: ${condition}. Região: ${region || "não indicada"}. Não substitui visita técnica; o valor final depende de estado do imóvel, acessos, materiais, demolições, resíduos, especialidades, urgência e IVA. O orçamento final é confirmado após análise do pedido.`;
+  }, [fixed, assessment, selected, result, area, space, condition, region, service]);
 
   function calculate(event) {
     event.preventDefault();
     setCalculated(false);
     setCopied(false);
+    track("calculator_result", {
+      service,
+      region: region || "nao_indicada",
+      pricingModel: selected ? "faixa_m2" : fixed ? "faixa_projeto" : "avaliacao",
+    });
     window.setTimeout(() => setCalculated(true), 40);
   }
 
@@ -82,7 +86,7 @@ export default function Calculator({ defaultService = "microcimento", defaultSpa
   contactParams.set("calcServico", selected?.label || assessment?.label || service);
   if (selected) {
     contactParams.set("area", String(area));
-    contactParams.set("nivel", finish === "premium" ? "Premium" : "Standard");
+    contactParams.set("nivel", "Faixa mínima, média e máxima");
     contactParams.set("espaco", space);
     contactParams.set("estado", condition);
   } else if (fixed) {
@@ -143,12 +147,6 @@ export default function Calculator({ defaultService = "microcimento", defaultSpa
                 {calculatorOptions.conditions.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
               </select>
             </label>
-            <label className="field-label">
-              Acabamento de referência
-              <select value={finish} onChange={(event) => setFinish(event.target.value)} className="field">
-                {calculatorOptions.finishes.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
-              </select>
-            </label>
           </>
         )}
         <label className="field-label">
@@ -162,17 +160,23 @@ export default function Calculator({ defaultService = "microcimento", defaultSpa
       </form>
 
       {calculated && result && (
-        <div className="result-grid animate-result" aria-live="polite">
-          <div className={`result-card ${finish === "standard" ? "ring-2 ring-gold" : ""}`}>
-            <span>Standard</span>
-            <strong>{money.format(result.standard)}</strong>
-            <small>Referência desde {money.format(selected.standard)} / m² — {selected.scope}</small>
+        <div className="mt-7 grid animate-result gap-4 md:grid-cols-3" aria-live="polite">
+          <div className="result-card">
+            <span>Faixa mínima</span>
+            <strong>{money.format(result.minimum)}</strong>
+            <small>Desde {money.format(selected.minimum)} / m² — condições simples e suporte favorável</small>
           </div>
-          <div className={`result-card result-card-premium ${finish === "premium" ? "ring-4 ring-gold/30" : ""}`}>
-            <span>Premium</span>
-            <strong>{money.format(result.premium)}</strong>
-            <small>Referência desde {money.format(selected.premium)} / m² — {selected.scope}</small>
+          <div className="result-card border-gold ring-2 ring-gold/20">
+            <span>Referência média</span>
+            <strong>{money.format(result.reference)}</strong>
+            <small>Cerca de {money.format(selected.reference)} / m² — enquadramento corrente</small>
           </div>
+          <div className="result-card result-card-premium">
+            <span>Faixa máxima</span>
+            <strong>{money.format(result.maximum)}</strong>
+            <small>Até {money.format(selected.maximum)} / m² — maior preparação, detalhe ou exigência</small>
+          </div>
+          <p className="text-xs leading-5 text-ink/50 md:col-span-3">{selected.scope}. Reparações localizadas, manutenção ou apenas pintura final são avaliadas como intervenções próprias e podem ficar fora desta estimativa de sistema completo.</p>
         </div>
       )}
 
@@ -206,8 +210,8 @@ export default function Calculator({ defaultService = "microcimento", defaultSpa
             : "IVA e condições fiscais a confirmar no orçamento."}
       </div>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link href={contactHref} className="button button-dark">Enviar para o formulário</Link>
-        <a href={whatsappHref} target="_blank" rel="noreferrer" className="button button-ghost">Enviar pelo WhatsApp</a>
+        <Link href={contactHref} data-analytics-event="calculator_to_form" className="button button-dark">Enviar para o formulário</Link>
+        <a href={whatsappHref} data-analytics-event="calculator_to_whatsapp" target="_blank" rel="noreferrer" className="button button-ghost">Enviar pelo WhatsApp</a>
         <button type="button" onClick={copyEstimate} className="button button-ghost">
           {copied ? "Estimativa copiada" : "Copiar estimativa"}
         </button>

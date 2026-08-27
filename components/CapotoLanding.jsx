@@ -27,7 +27,7 @@ const locations = [
 ];
 
 const guides = [
-  ["Preço por m²", "O que está por trás da faixa de 77–102 €/m².", "/capoto/preco-por-m2"],
+  ["Preço por m²", "Faixa de 55–90 €/m² e referência média de 77 €/m².", "/capoto/preco-por-m2"],
   ["EPS, XPS ou lã mineral", "Escolha do isolamento e compatibilidade do sistema.", "/capoto/eps-vs-xps-vs-la-mineral"],
   ["Espessuras", "Como suporte, clima e remates influenciam a decisão.", "/capoto/espessuras"],
   ["Reparação", "Impactos, fissuras, zonas ocas e acabamento final.", "/capoto/reparacao"],

@@ -17,7 +17,7 @@ import { workImages } from "@/data/images";
 import { site } from "@/data/site";
 
 export const metadata = {
-  title: "Construção, Remodelação e Capoto",
+  title: { absolute: "Aureon Construção | Remodelação e Capoto" },
   description: "Construção, remodelação, Capoto / ETICS e soluções técnicas com especialistas coordenados em Lisboa, Setúbal, Algarve e Alentejo.",
   alternates: { canonical: "/" },
 };
@@ -67,14 +67,6 @@ const problemLinks = [
   },
 ];
 
-const workflowSteps = [
-  ["01", "Diagnóstico inicial", "Recolhemos descrição, fotografias, localização e prioridade do pedido."],
-  ["02", "Levantamento e orçamento", "Confirmamos âmbito, condicionantes, materiais e trabalhos complementares."],
-  ["03", "Planeamento da intervenção", "Organizamos sequência, acessos, equipas, proteções e fornecimentos."],
-  ["04", "Coordenação das equipas", "Articulamos especialidades como canalização, eletricidade, pladur, pintura e acabamentos."],
-  ["05", "Revisão e entrega", "Revemos os trabalhos contratados e registamos pontos relevantes quando aplicável."],
-];
-
 const analysisChecks = [
   "estado atual e origem provável do problema",
   "acessos, proteção de zonas existentes e gestão de resíduos",
@@ -110,7 +102,7 @@ export default function HomePage() {
             <h1 className="heading-xl mt-6 text-white">
               Construção e remodelação com <span className="text-gold">especialistas em cada área.</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/72 md:text-xl">
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/[.72] md:text-xl">
               A Aureon coordena profissionais de confiança em construção, remodelações,
               Capoto, telhados, canalização, eletricidade e acabamentos. O cliente mantém
               um único ponto de contacto responsável pela sequência global da obra.
@@ -150,7 +142,7 @@ export default function HomePage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              ["Preço e orçamento", "O que os 77–102 €/m² representam e quais fatores alteram o valor.", "/capoto/preco-por-m2"],
+              ["Preço e orçamento", "Como a faixa de 55–90 €/m² e a referência média de 77 €/m² são enquadradas.", "/capoto/preco-por-m2"],
               ["Materiais e espessuras", "EPS, XPS, lã mineral, desempenho, compatibilidade e remates.", "/capoto/eps-vs-xps-vs-la-mineral"],
               ["Reparação e fissuras", "Impactos, zonas ocas, destacamentos e diagnóstico antes de pintar.", "/capoto/reparacao"],
               ["Humidade e condensação", "Quando o isolamento ajuda e quando a origem exige outra solução.", "/capoto/humidade-condensacao"],
@@ -256,20 +248,6 @@ export default function HomePage() {
                 Conhecer a abordagem da Aureon
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-space bg-sand/45">
-        <div className="container-shell">
-          <SectionHeading eyebrow="Processo" title="Do pedido inicial à revisão final" center />
-          <div className="mt-14 grid gap-10 md:grid-cols-5">
-            {workflowSteps.map(([number, title, text]) => (
-              <div key={number} className="number-step" data-number={number}>
-                <h3 className="font-bold text-ink">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-ink/55">{text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

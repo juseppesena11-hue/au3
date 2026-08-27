@@ -9,7 +9,6 @@ export const site = {
     "https://wa.me/351926378947?text=Ol%C3%A1%20Aureon%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.",
   email: "juseppesena11@gmail.com",
   address: null,
-  openingHours: "Segunda-feira a Sábado, 08:00 - 19:00",
   serviceAreaNotice:
     "As regiões apresentadas são áreas de atuação e não representam necessariamente escritórios físicos.",
   pricing: {

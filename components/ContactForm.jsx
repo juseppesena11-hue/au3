@@ -6,6 +6,7 @@ import { publishedServices } from "@/data/services";
 import { publishedSubservices } from "@/data/subservices";
 import { getRegion, publishedRegions } from "@/data/regions";
 import { site } from "@/data/site";
+import { track } from "@vercel/analytics";
 
 const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
 const maxFiles = 3;
@@ -75,12 +76,17 @@ export default function ContactForm({
       const response = await fetch("/api/email", { method: "POST", body: data });
       const result = await response.json();
       if (response.ok) {
+        track("lead_form_success", {
+          service: String(data.get("service") || "nao_indicado"),
+          source: source || "formulario",
+        });
         setStatus("success");
         setMessage("Mensagem enviada. Entraremos em contacto assim que possível.");
         form.reset();
         return;
       }
       if (response.status === 503) {
+        track("lead_form_fallback", { reason: "email_unavailable" });
         setStatus("fallback");
         setFallbackHref(buildWhatsappHref(data));
         setMessage("O envio por e-mail não foi concluído. Pode enviar o mesmo pedido pelo WhatsApp.");
@@ -88,6 +94,7 @@ export default function ContactForm({
       }
       throw new Error(result.message || "Não foi possível enviar o pedido.");
     } catch (error) {
+      track("lead_form_error", { reason: "request_failed" });
       setStatus("error");
       setFallbackHref(buildWhatsappHref(data));
       setMessage(error.message || "O envio por e-mail não foi concluído. Pode enviar o mesmo pedido pelo WhatsApp.");
@@ -186,9 +193,14 @@ export default function ContactForm({
           </span>
         </label>
       </div>
-      <button disabled={status === "loading"} className="button button-primary mt-7 w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">
-        {status === "loading" ? "A enviar..." : "Enviar pedido de orçamento"}
-      </button>
+      <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <button disabled={status === "loading"} className="button button-primary w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">
+          {status === "loading" ? "A enviar..." : "Enviar pedido de orçamento"}
+        </button>
+        <a href={site.whatsapp} target="_blank" rel="noreferrer" className="button button-ghost w-full sm:w-auto">
+          Preferir WhatsApp
+        </a>
+      </div>
       <div aria-live="polite" aria-atomic="true">
         {message && (
           <div className="mt-4">

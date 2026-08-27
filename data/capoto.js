@@ -17,15 +17,15 @@ export const capotoPages = [
     title: "Preço de Capoto por m²",
     eyebrow: "Custos e orçamento",
     description: "Perceba o que influencia o preço de Capoto / ETICS por m² e por que área, espessura, andaimes e remates mudam a proposta.",
-    intro: "Uma referência por m² ajuda a enquadrar o investimento, mas não substitui a leitura da fachada. A calculadora da Aureon usa 77 €/m² como referência base e 102 €/m² para um enquadramento superior, sempre como estimativa indicativa de fornecimento e aplicação em condições de referência.",
-    facts: ["Referência base: 77 €/m²", "Referência superior: 102 €/m²", "Fachada medida e remates validados antes da proposta"],
+    intro: "Uma referência por m² ajuda a enquadrar o investimento, mas não substitui a leitura da fachada. A calculadora da Aureon apresenta uma faixa indicativa entre 55 €/m² e 90 €/m², com 77 €/m² como referência média de fornecimento e aplicação em condições correntes.",
+    facts: ["Faixa mínima: 55 €/m²", "Referência média: 77 €/m²", "Faixa máxima: 90 €/m²"],
     sections: [
       ["O que mais altera o preço", "A dimensão e geometria da fachada, o estado do reboco, a espessura e o tipo de isolamento, os andaimes, o número de vãos, peitoris, tubos, caixas de estore, varandas e coroamentos determinam tempo, material e risco de execução."],
       ["Preço bruto ou área líquida", "A forma de medição deve ficar escrita. Em trabalhos de grande dimensão pode usar-se superfície bruta sem descontar vãos, porque cada janela acrescenta recortes e remates. Se a medição for líquida, os perímetros podem precisar de preço próprio."],
       ["O que confirmar na proposta", "Verifique sistema, isolamento e espessura, preparação, colagem e fixação, rede, perfis, acabamento, andaimes, proteção, resíduos, remates, IVA e exclusões. Dois preços só são comparáveis quando o âmbito é o mesmo."],
     ],
     faqs: [
-      ["Os 77 € ou 102 € são preço fechado?", "Não. São referências iniciais. O valor final depende da medição, do suporte, acessos, sistema, espessura, remates e trabalhos complementares."],
+      ["Os 55 €, 77 € ou 90 € são preços fechados?", "Não. São referências para condições diferentes. O valor final depende da medição, do suporte, acessos, sistema, espessura, remates e trabalhos complementares."],
       ["Os andaimes estão sempre incluídos?", "Não devem ser presumidos. A inclusão, tipo, licenças e tempo de utilização têm de constar da proposta."],
     ],
   }),

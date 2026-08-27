@@ -64,10 +64,6 @@ export default function Footer() {
                 <span>Lisboa · Setúbal · Algarve · Alentejo</span>
               </div>
             )}
-            <div className="contact-line">
-              <Icon name="clock" className="h-5 w-5 text-gold" />
-              Seg - Sáb, 08:00 - 19:00
-            </div>
           </div>
         </div>
         <div>

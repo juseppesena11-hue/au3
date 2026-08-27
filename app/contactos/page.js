@@ -46,10 +46,6 @@ export default function ContactPage({ searchParams }) {
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/10 text-gold"><Icon name="location" /></span>
                 <span><small className="block text-white/45">Regiões</small><strong className="mt-1 block leading-6">{publishedRegions.map((region) => region.name).join(" · ")}</strong></span>
               </div>
-              <div className="flex gap-4">
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/10 text-gold"><Icon name="clock" /></span>
-                <span><small className="block text-white/45">Horário</small><strong className="mt-1 block">Segunda a Sábado, 08:00 - 19:00</strong></span>
-              </div>
             </div>
           </div>
           <ContactForm
