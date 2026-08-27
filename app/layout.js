@@ -11,14 +11,14 @@ import { publishedRegions } from "@/data/regions";
 export const metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Aureon Construção | Obras e Remodelações",
+    default: "Aureon Construção | Construção, Remodelação e Capoto",
     template: "%s | Aureon Construção",
   },
   description:
-    "Remodelações, reparações, infiltrações, telhados, cozinhas e casas de banho com coordenação técnica em Lisboa, Setúbal, Alentejo e Algarve.",
+    "Construção, remodelação, Capoto / ETICS e soluções técnicas com especialistas coordenados em Lisboa, Setúbal, Algarve e Alentejo.",
   openGraph: {
     title: "Aureon Construção",
-    description: "Obras coordenadas com rigor, documentação fotográfica quando aplicável e acompanhamento técnico.",
+    description: "Construção, remodelação e Capoto / ETICS com especialistas coordenados por uma única empresa.",
     url: site.url,
     siteName: site.name,
     locale: "pt_PT",
@@ -28,7 +28,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Aureon Construção",
-    description: "Remodelações, reparações e intervenções técnicas coordenadas por especialidade.",
+    description: "Construção, remodelação e Capoto / ETICS com coordenação das especialidades.",
     images: ["/hero-aureon.webp"],
   },
   verification: site.analytics.googleSiteVerification
@@ -37,6 +37,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const address = site.address
+    ? {
+        "@type": "PostalAddress",
+        streetAddress: site.address.streetAddress,
+        postalCode: site.address.postalCode,
+        addressLocality: site.address.addressLocality,
+        addressCountry: site.address.addressCountry,
+      }
+    : undefined;
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -48,12 +57,14 @@ export default function RootLayout({ children }) {
         email: site.email,
         telephone: site.phone,
         logo: `${site.url}/logo.svg`,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: site.address.streetAddress,
-          postalCode: site.address.postalCode,
-          addressLocality: site.address.addressLocality,
-          addressCountry: site.address.addressCountry,
+        ...(address ? { address } : {}),
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: site.phone,
+          email: site.email,
+          contactType: "customer service",
+          availableLanguage: ["Portuguese"],
+          areaServed: "PT",
         },
       },
       {
@@ -64,13 +75,7 @@ export default function RootLayout({ children }) {
         telephone: site.phone,
         email: site.email,
         image: `${site.url}/hero-aureon.webp`,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: site.address.streetAddress,
-          postalCode: site.address.postalCode,
-          addressLocality: site.address.addressLocality,
-          addressCountry: site.address.addressCountry,
-        },
+        ...(address ? { address } : {}),
         areaServed: publishedRegions.map(({ name }) => ({
           "@type": "AdministrativeArea",
           name,

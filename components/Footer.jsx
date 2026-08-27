@@ -12,8 +12,8 @@ export default function Footer() {
         <div>
           <Logo inverted />
           <p className="mt-5 max-w-sm text-sm leading-7 text-white/65">
-            Remodelações, reparações e intervenções técnicas com coordenação das especialidades,
-            documentação fotográfica quando aplicável e comunicação clara com o cliente.
+            Construção, remodelação, Capoto / ETICS e soluções técnicas com profissionais por
+            especialidade, coordenação global e comunicação clara com o cliente.
           </p>
           <div className="mt-6 flex gap-2 text-xs font-bold uppercase tracking-[.16em] text-gold">
             {publishedRegions.map((region) => region.name).join(" · ")}
@@ -33,6 +33,8 @@ export default function Footer() {
         <div>
           <h3 className="footer-title">Serviços</h3>
           <div className="footer-links">
+            <Link href="/servicos/capoto-etics">Capoto / ETICS</Link>
+            <Link href="/capoto/preco-por-m2">Preço de Capoto</Link>
             {publishedServices.slice(0, 6).map((service) => (
               <Link key={service.slug} href={`/servicos/${service.slug}`}>
                 {service.title}
@@ -51,10 +53,17 @@ export default function Footer() {
               <Icon name="mail" className="h-5 w-5 text-gold" />
               {site.email}
             </a>
-            <div className="contact-line">
-              <Icon name="location" className="h-5 w-5 text-gold" />
-              <span>{formattedAddress}</span>
-            </div>
+            {formattedAddress ? (
+              <div className="contact-line">
+                <Icon name="location" className="h-5 w-5 text-gold" />
+                <span>{formattedAddress}</span>
+              </div>
+            ) : (
+              <div className="contact-line">
+                <Icon name="location" className="h-5 w-5 text-gold" />
+                <span>Lisboa · Setúbal · Algarve · Alentejo</span>
+              </div>
+            )}
             <div className="contact-line">
               <Icon name="clock" className="h-5 w-5 text-gold" />
               Seg - Sáb, 08:00 - 19:00

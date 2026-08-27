@@ -6,7 +6,7 @@ import { publishedRegions } from "@/data/regions";
 
 export const metadata = {
   title: "Contactos",
-  description: "Peça orçamento gratuito para obras, remodelações e reparações. WhatsApp, telefone e email.",
+  description: "Envie fotografias e detalhes para pedir orçamento de construção, remodelação, Capoto e reparações à Aureon Construção.",
   alternates: { canonical: "/contactos" },
 };
 
@@ -36,10 +36,12 @@ export default function ContactPage({ searchParams }) {
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/10 text-gold"><Icon name="mail" /></span>
                 <span><small className="block text-white/45">Email</small><strong className="mt-1 block">{site.email}</strong></span>
               </a>
-              <div className="flex gap-4">
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/10 text-gold"><Icon name="location" /></span>
-                <span><small className="block text-white/45">Morada</small><strong className="mt-1 block leading-6">{formattedAddress}</strong></span>
-              </div>
+              {formattedAddress && (
+                <div className="flex gap-4">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/10 text-gold"><Icon name="location" /></span>
+                  <span><small className="block text-white/45">Morada</small><strong className="mt-1 block leading-6">{formattedAddress}</strong></span>
+                </div>
+              )}
               <div className="flex gap-4">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/10 text-gold"><Icon name="location" /></span>
                 <span><small className="block text-white/45">Regiões</small><strong className="mt-1 block leading-6">{publishedRegions.map((region) => region.name).join(" · ")}</strong></span>

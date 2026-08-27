@@ -10,7 +10,7 @@ import { site } from "@/data/site";
 
 export const metadata = {
   title: "Serviços",
-  description: "Serviços de remodelação, reparação e intervenção técnica organizados por especialidade pela Aureon Construção.",
+  description: "Construção, remodelação, Capoto / ETICS, telhados, eletricidade, canalização, pintura e acabamentos coordenados pela Aureon.",
   alternates: { canonical: "/servicos" },
 };
 
@@ -20,7 +20,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Serviços"
         title="Especialidades coordenadas para obras reais"
-        text="Remodelações, reparações, infiltrações, telhados, cozinhas, casas de banho e acabamentos com avaliação do estado real do imóvel antes do orçamento final."
+        text="Construção, remodelação, Capoto / ETICS, infiltrações, telhados, cozinhas, casas de banho e acabamentos com avaliação do estado real antes do orçamento final."
         breadcrumbs={[{ label: "Serviços", href: "/servicos" }]}
         action={{ label: "Calcular uma estimativa", href: "#calculadora" }}
       />

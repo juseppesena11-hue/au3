@@ -3,6 +3,7 @@ import { publishedSubservices } from "@/data/subservices";
 import { publishedArticles } from "@/data/articles";
 import { publishedProjects } from "@/data/portfolio";
 import { publishedRegions } from "@/data/regions";
+import { publishedCapotoPages } from "@/data/capoto";
 import { legalPages, site } from "@/data/site";
 
 function entry(path, { priority = 0.7, changeFrequency = "monthly", lastModified } = {}) {
@@ -16,9 +17,9 @@ function entry(path, { priority = 0.7, changeFrequency = "monthly", lastModified
 
 export default function sitemap() {
   const staticPages = [
-    entry("", { priority: 1, changeFrequency: "weekly", lastModified: "2026-07-08" }),
-    entry("/sobre-nos", { priority: 0.7, lastModified: "2026-07-08" }),
-    entry("/servicos", { priority: 0.9, lastModified: "2026-07-08" }),
+    entry("", { priority: 1, changeFrequency: "weekly", lastModified: "2026-08-27" }),
+    entry("/sobre-nos", { priority: 0.7, lastModified: "2026-08-27" }),
+    entry("/servicos", { priority: 0.9, lastModified: "2026-08-27" }),
     entry("/portfolio", { priority: 0.7, lastModified: "2026-07-08" }),
     entry("/blog", { priority: 0.8, changeFrequency: "weekly", lastModified: "2026-07-08" }),
     entry("/contactos", { priority: 0.8, lastModified: "2026-07-08" }),
@@ -31,12 +32,19 @@ export default function sitemap() {
     ...staticPages,
     ...[...publishedServices, ...publishedSubservices].map((service) =>
       entry(`/servicos/${service.slug}`, {
-        priority: service.parentService ? 0.75 : 0.85,
+        priority: service.slug === "capoto-etics" ? 0.95 : service.parentService ? 0.75 : 0.85,
         lastModified: service.updatedAt,
       })
     ),
     ...publishedRegions.map((region) =>
       entry(`/regioes/${region.slug}`, { priority: 0.8, lastModified: region.updatedAt })
+    ),
+    ...publishedCapotoPages.map((page) =>
+      entry(`/capoto/${page.slug}`, {
+        priority: page.region ? 0.82 : 0.8,
+        changeFrequency: "yearly",
+        lastModified: page.updatedAt,
+      })
     ),
     ...publishedArticles.map((article) =>
       entry(`/blog/${article.slug}`, {

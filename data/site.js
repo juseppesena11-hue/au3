@@ -8,12 +8,7 @@ export const site = {
   whatsapp:
     "https://wa.me/351926378947?text=Ol%C3%A1%20Aureon%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.",
   email: "juseppesena11@gmail.com",
-  address: {
-    streetAddress: "Rua Ipanema 193, Anexo 2",
-    postalCode: "2785-174",
-    addressLocality: "São Domingos de Rana",
-    addressCountry: "Portugal",
-  },
+  address: null,
   openingHours: "Segunda-feira a Sábado, 08:00 - 19:00",
   serviceAreaNotice:
     "As regiões apresentadas são áreas de atuação e não representam necessariamente escritórios físicos.",
@@ -36,4 +31,6 @@ export const legalPages = [
   { href: "/politica-de-cookies", label: "Política de cookies" },
 ];
 
-export const formattedAddress = `${site.address.streetAddress}, ${site.address.postalCode} ${site.address.addressLocality}, ${site.address.addressCountry}`;
+export const formattedAddress = site.address
+  ? `${site.address.streetAddress}, ${site.address.postalCode} ${site.address.addressLocality}, ${site.address.addressCountry}`
+  : null;

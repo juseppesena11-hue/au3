@@ -76,7 +76,7 @@ const serviceBase = [
   {
     slug: "canalizacao",
     title: "Canalização",
-    short: "Instalações novas, substituição de tubagens, fugas e reparações rápidas.",
+    short: "Instalações novas, substituição de tubagens, fugas e reparações após diagnóstico.",
     headline: "Instalações e reparações de canalização com diagnóstico do ponto afetado",
     intro:
       "Executamos instalações, substituições e reparações de canalização em remodelações, construções novas e intervenções urgentes.",
@@ -113,9 +113,9 @@ const serviceBase = [
     slug: "microcimento",
     title: "Microcimento",
     short: "Superfícies contínuas, modernas e resistentes para interiores e exteriores.",
-    headline: "Acabamento moderno, contínuo e altamente resistente",
+    headline: "Microcimento contínuo com preparação e selagem adequadas ao suporte",
     intro:
-      "Aplicamos microcimento com rigor técnico, assegurando superfícies uniformes, resistentes e com um acabamento contemporâneo.",
+      "Aplicamos sistemas de microcimento em suportes compatíveis, com preparação, camadas de base, acabamento e selagem definidos para a utilização.",
     includes: [
       "Pavimentos e paredes",
       "Casas de banho",
@@ -124,16 +124,16 @@ const serviceBase = [
       "Zonas exteriores",
     ],
     trust:
-      "Sem juntas, fácil de limpar, resistente e disponível numa ampla gama de cores.",
+      "O resultado depende da estabilidade do suporte, da preparação, da proteção final e dos cuidados de utilização e manutenção.",
     icon: "texture",
   },
   {
     slug: "capoto-etics",
     title: "Capoto / ETICS",
-    short: "Isolamento térmico de fachadas para maior conforto e eficiência energética.",
-    headline: "Eficiência térmica e fachadas duradouras",
+    short: "Aplicação e reparação de isolamento térmico exterior em fachadas de moradias e prédios.",
+    headline: "Aplicação e reparação de Capoto / ETICS",
     intro:
-      "Aplicamos sistemas ETICS com rigor técnico para melhorar o conforto, proteger fachadas e reduzir perdas energéticas.",
+      "Aplicamos e reparamos sistemas ETICS para melhorar o conforto térmico, proteger fachadas e limitar perdas de calor pela envolvente exterior.",
     includes: [
       "Aplicação completa de ETICS",
       "Reabilitação de fachadas",
@@ -142,8 +142,11 @@ const serviceBase = [
       "Acabamentos decorativos",
     ],
     trust:
-      "Reduz consumos, combate condensação, protege paredes e valoriza o imóvel.",
+      "O desempenho depende do suporte, espessura, continuidade do isolamento, fixação, remates e compatibilidade de todos os componentes.",
     icon: "shield",
+    seoTitle: "Capoto / ETICS: aplicação, reparação e preço por m²",
+    seoDescription: "Aplicação e reparação de Capoto / ETICS em Lisboa, Setúbal, Algarve e Alentejo. Isolamento térmico exterior para moradias e prédios.",
+    updatedAt: "2026-08-27",
   },
   {
     slug: "telhados-impermeabilizacao",
@@ -167,12 +170,12 @@ const serviceBase = [
     slug: "alvenaria",
     title: "Alvenaria",
     short: "Paredes, muros, divisórias e reforços sólidos e bem nivelados.",
-    headline: "Estruturas com segurança e durabilidade",
+    headline: "Paredes, muros e alterações de alvenaria integradas com os acabamentos",
     intro:
       "Executamos trabalhos completos de alvenaria com estruturas sólidas, nivelamento preciso e acabamento de qualidade.",
     includes: [
       "Construção de paredes",
-      "Reforço estrutural",
+      "Alteração de vãos não estruturais",
       "Muros e divisórias",
       "Reabilitação antiga",
       "Trabalhos de remodelação",
@@ -186,7 +189,7 @@ const serviceBase = [
     short: "Terraços, varandas e jardins bonitos, funcionais e resistentes.",
     headline: "Transformamos o seu espaço exterior",
     intro:
-      "Projetamos e construímos decks, varandas, terraços e zonas de lazer com materiais resistentes e acabamento cuidado.",
+      "Executamos decks, pavimentos e zonas exteriores depois de avaliar base, drenagem, exposição, estrutura e manutenção do material escolhido.",
     includes: [
       "Decks em madeira e compósito",
       "Pavimentos exteriores",
@@ -243,8 +246,8 @@ const serviceBase = [
       "Identificamos e resolvemos ruturas, infiltrações, danos por humidade ou falhas estruturais, apoiando também a documentação do sinistro.",
     includes: [
       "Avaliação técnica",
-      "Reparação imediata",
-      "Relatórios e fotografias",
+      "Reparação conforme diagnóstico",
+      "Documentação técnica e fotografias",
       "Acompanhamento de peritos",
       "Prevenção de novos danos",
     ],
@@ -453,6 +456,33 @@ const serviceBudgetFactors = {
 };
 
 const serviceSpecificFaqs = {
+  "capoto-etics": [
+    {
+      question: "Capoto e ETICS são a mesma coisa?",
+      answer:
+        "Capoto é o nome usado correntemente em Portugal para sistemas ETICS de isolamento térmico pelo exterior. O sistema inclui isolamento, colagem e fixação, camada de base com rede, perfis, primário e acabamento compatíveis.",
+    },
+    {
+      question: "Quanto custa aplicar Capoto por m²?",
+      answer:
+        "O preço por m² depende da área, estado da fachada, espessura e material isolante, andaimes, acessos, remates, acabamento e reparações prévias. A calculadora fornece apenas uma referência; o valor final exige informação detalhada e, quando necessário, visita.",
+    },
+    {
+      question: "O Capoto resolve humidade e condensação?",
+      answer:
+        "Pode ajudar a reduzir condensação superficial associada a paredes exteriores frias, mas não resolve infiltrações, fugas, humidade ascendente ou ventilação insuficiente. A origem deve ser diagnosticada antes.",
+    },
+    {
+      question: "É possível reparar Capoto já existente?",
+      answer:
+        "Sim, em muitos casos. Impactos, fissuras, zonas destacadas e remates degradados devem ser avaliados para perceber se basta uma reparação localizada ou se existe um problema mais abrangente no sistema.",
+    },
+    {
+      question: "Que isolamento pode ser usado num sistema ETICS?",
+      answer:
+        "Existem soluções com EPS, EPS grafite e lã mineral, entre outras previstas por sistemas certificados. A escolha e a espessura dependem do edifício, suporte, desempenho pretendido, reação ao fogo e enquadramento técnico aplicável.",
+    },
+  ],
   "telhados-impermeabilizacao": [
     {
       question: "Como saber se basta reparar ou é preciso intervir no telhado todo?",
@@ -814,10 +844,10 @@ export const services = serviceBase.map((service) => {
     image: visual.image || "/hero-aureon.webp",
     gallery: visual.gallery || [],
     detailSections: [...(visual.detailSections || []), ...(additionalDetailSections[service.slug] || [])],
-    seoTitle: `${finalService.title} | Aureon Construção`,
-    seoDescription: `${finalService.headline}. Avaliação e orçamento para trabalhos em Lisboa, Setúbal, Alentejo e Algarve.`,
+    seoTitle: finalService.seoTitle || finalService.title,
+    seoDescription: finalService.seoDescription || `${finalService.headline}. Avaliação e orçamento para trabalhos em Lisboa, Setúbal, Alentejo e Algarve.`,
     status: "published",
-    updatedAt: "2026-07-09",
+    updatedAt: finalService.updatedAt || "2026-08-27",
   };
 });
 
