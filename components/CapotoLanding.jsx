@@ -22,6 +22,17 @@ const locations = [
   "Sintra",
   "Cascais",
   "Oeiras",
+  "Algarve",
+  "Alentejo",
+];
+
+const guides = [
+  ["Preço por m²", "O que está por trás da faixa de 77–102 €/m².", "/capoto/preco-por-m2"],
+  ["EPS, XPS ou lã mineral", "Escolha do isolamento e compatibilidade do sistema.", "/capoto/eps-vs-xps-vs-la-mineral"],
+  ["Espessuras", "Como suporte, clima e remates influenciam a decisão.", "/capoto/espessuras"],
+  ["Reparação", "Impactos, fissuras, zonas ocas e acabamento final.", "/capoto/reparacao"],
+  ["Moradias", "Planeamento do isolamento exterior em habitação.", "/capoto/moradias"],
+  ["Prédios", "Condomínios, andaimes, medição e fases de obra.", "/capoto/predios"],
 ];
 
 const systemLayers = [
@@ -66,8 +77,8 @@ export default function CapotoLanding({ service, schema }) {
               <span className="text-white">Capoto / ETICS</span>
             </nav>
             <p className="eyebrow">Isolamento térmico exterior</p>
-            <h1 className="heading-xl mt-5 max-w-4xl text-white">Capoto em Lisboa e Setúbal</h1>
-            <p className="mt-6 max-w-3xl text-xl font-semibold text-gold">Aplicação e reparação de sistemas ETICS</p>
+            <h1 className="heading-xl mt-5 max-w-4xl text-white">Aplicação e reparação de Capoto / ETICS</h1>
+            <p className="mt-6 max-w-3xl text-xl font-semibold text-gold">Isolamento térmico exterior para moradias e prédios</p>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-white/70">
               Avaliamos fachadas de moradias e prédios para melhorar o conforto térmico, proteger o exterior e resolver degradações do sistema existente. Envie localização, área aproximada e fotografias para uma primeira análise.
             </p>
@@ -76,7 +87,7 @@ export default function CapotoLanding({ service, schema }) {
               <a href={whatsappHref} target="_blank" rel="noreferrer" className="button border border-white/30 text-white hover:bg-white hover:text-ink">Enviar fotografias por WhatsApp</a>
             </div>
             <ul className="mt-9 grid gap-3 text-sm text-white/65 sm:grid-cols-3">
-              {["Orçamento detalhado", "Moradias e prédios", "Lisboa e Setúbal"].map((item) => (
+              {["Orçamento detalhado", "Moradias e prédios", "Lisboa · Setúbal · Algarve · Alentejo"].map((item) => (
                 <li key={item} className="flex items-center gap-2"><Icon name="check" className="h-4 w-4 text-gold" /> {item}</li>
               ))}
             </ul>
@@ -92,6 +103,23 @@ export default function CapotoLanding({ service, schema }) {
             </ul>
             <p className="mt-6 border-t border-white/10 pt-6 text-xs leading-5 text-white/45">O valor final depende do suporte, área, espessura, acessos, andaimes, remates, acabamento e trabalhos complementares.</p>
           </aside>
+        </div>
+      </section>
+
+      <section className="section-space bg-ink text-white">
+        <div className="container-shell">
+          <p className="eyebrow text-gold">Centro técnico de Capoto</p>
+          <h2 className="heading-lg mt-3 max-w-4xl text-white">Respostas específicas para decidir antes de pedir orçamento</h2>
+          <p className="mt-5 max-w-3xl leading-8 text-white/60">Preço, materiais, espessura, reparação e tipo de edifício são tratados em páginas próprias para que a decisão não fique reduzida a uma descrição genérica.</p>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {guides.map(([title, text, href]) => (
+              <Link key={href} href={href} className="group rounded-2xl border border-white/10 bg-white/[.04] p-6 transition hover:border-gold/60 hover:bg-white/[.07]">
+                <h3 className="text-lg font-bold">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-white/55">{text}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-gold">Abrir guia <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" /></span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -181,7 +209,7 @@ export default function CapotoLanding({ service, schema }) {
         <div className="container-shell grid gap-10 lg:grid-cols-[.7fr_1.3fr]">
           <div>
             <p className="eyebrow">Áreas de atuação</p>
-            <h2 className="heading-md mt-3">Capoto em Lisboa, Setúbal e concelhos próximos</h2>
+            <h2 className="heading-md mt-3">Capoto em Lisboa, Setúbal, Algarve e Alentejo</h2>
             <p className="mt-5 leading-7 text-ink/60">Confirme a morada ou o concelho no pedido. A disponibilidade depende do âmbito, acessos e planeamento da equipa.</p>
           </div>
           <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -189,6 +217,14 @@ export default function CapotoLanding({ service, schema }) {
               <li key={location} className="flex items-center gap-2 rounded-xl border border-ink/10 bg-white p-4 font-semibold"><Icon name="location" className="h-4 w-4 shrink-0 text-gold" /> {location}</li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="pb-16">
+        <div className="container-shell flex flex-wrap gap-3 text-sm font-bold">
+          {["lisboa", "setubal", "algarve", "alentejo"].map((slug) => (
+            <Link key={slug} href={`/capoto/${slug}`} className="rounded-full border border-ink/10 px-5 py-3 text-ink hover:border-gold hover:text-gold">Capoto em {slug.charAt(0).toUpperCase() + slug.slice(1)}</Link>
+          ))}
         </div>
       </section>
 

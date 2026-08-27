@@ -4,6 +4,14 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   poweredByHeader: false,
+  async redirects() {
+    return [
+      { source: "/capoto", destination: "/servicos/capoto-etics", permanent: true },
+      { source: "/servicos/capoto", destination: "/servicos/capoto-etics", permanent: true },
+      { source: "/etics", destination: "/servicos/capoto-etics", permanent: true },
+      { source: "/isolamento-termico-exterior", destination: "/capoto/isolamento-termico-exterior", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

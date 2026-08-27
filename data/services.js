@@ -76,7 +76,7 @@ const serviceBase = [
   {
     slug: "canalizacao",
     title: "Canalização",
-    short: "Instalações novas, substituição de tubagens, fugas e reparações rápidas.",
+    short: "Instalações novas, substituição de tubagens, fugas e reparações após diagnóstico.",
     headline: "Instalações e reparações de canalização com diagnóstico do ponto afetado",
     intro:
       "Executamos instalações, substituições e reparações de canalização em remodelações, construções novas e intervenções urgentes.",
@@ -113,9 +113,9 @@ const serviceBase = [
     slug: "microcimento",
     title: "Microcimento",
     short: "Superfícies contínuas, modernas e resistentes para interiores e exteriores.",
-    headline: "Acabamento moderno, contínuo e altamente resistente",
+    headline: "Microcimento contínuo com preparação e selagem adequadas ao suporte",
     intro:
-      "Aplicamos microcimento com rigor técnico, assegurando superfícies uniformes, resistentes e com um acabamento contemporâneo.",
+      "Aplicamos sistemas de microcimento em suportes compatíveis, com preparação, camadas de base, acabamento e selagem definidos para a utilização.",
     includes: [
       "Pavimentos e paredes",
       "Casas de banho",
@@ -124,14 +124,14 @@ const serviceBase = [
       "Zonas exteriores",
     ],
     trust:
-      "Sem juntas, fácil de limpar, resistente e disponível numa ampla gama de cores.",
+      "O resultado depende da estabilidade do suporte, da preparação, da proteção final e dos cuidados de utilização e manutenção.",
     icon: "texture",
   },
   {
     slug: "capoto-etics",
     title: "Capoto / ETICS",
     short: "Aplicação e reparação de isolamento térmico exterior em fachadas de moradias e prédios.",
-    headline: "Capoto em Lisboa e Setúbal",
+    headline: "Aplicação e reparação de Capoto / ETICS",
     intro:
       "Aplicamos e reparamos sistemas ETICS para melhorar o conforto térmico, proteger fachadas e limitar perdas de calor pela envolvente exterior.",
     includes: [
@@ -144,9 +144,9 @@ const serviceBase = [
     trust:
       "O desempenho depende do suporte, espessura, continuidade do isolamento, fixação, remates e compatibilidade de todos os componentes.",
     icon: "shield",
-    seoTitle: "Capoto em Lisboa e Setúbal: aplicação e preço por m²",
-    seoDescription: "Aplicação e reparação de Capoto / ETICS em Lisboa e Setúbal. Isolamento térmico exterior para moradias e prédios, com avaliação e orçamento.",
-    updatedAt: "2026-08-20",
+    seoTitle: "Capoto / ETICS: aplicação, reparação e preço por m²",
+    seoDescription: "Aplicação e reparação de Capoto / ETICS em Lisboa, Setúbal, Algarve e Alentejo. Isolamento térmico exterior para moradias e prédios.",
+    updatedAt: "2026-08-27",
   },
   {
     slug: "telhados-impermeabilizacao",
@@ -170,12 +170,12 @@ const serviceBase = [
     slug: "alvenaria",
     title: "Alvenaria",
     short: "Paredes, muros, divisórias e reforços sólidos e bem nivelados.",
-    headline: "Estruturas com segurança e durabilidade",
+    headline: "Paredes, muros e alterações de alvenaria integradas com os acabamentos",
     intro:
       "Executamos trabalhos completos de alvenaria com estruturas sólidas, nivelamento preciso e acabamento de qualidade.",
     includes: [
       "Construção de paredes",
-      "Reforço estrutural",
+      "Alteração de vãos não estruturais",
       "Muros e divisórias",
       "Reabilitação antiga",
       "Trabalhos de remodelação",
@@ -189,7 +189,7 @@ const serviceBase = [
     short: "Terraços, varandas e jardins bonitos, funcionais e resistentes.",
     headline: "Transformamos o seu espaço exterior",
     intro:
-      "Projetamos e construímos decks, varandas, terraços e zonas de lazer com materiais resistentes e acabamento cuidado.",
+      "Executamos decks, pavimentos e zonas exteriores depois de avaliar base, drenagem, exposição, estrutura e manutenção do material escolhido.",
     includes: [
       "Decks em madeira e compósito",
       "Pavimentos exteriores",
@@ -246,8 +246,8 @@ const serviceBase = [
       "Identificamos e resolvemos ruturas, infiltrações, danos por humidade ou falhas estruturais, apoiando também a documentação do sinistro.",
     includes: [
       "Avaliação técnica",
-      "Reparação imediata",
-      "Relatórios e fotografias",
+      "Reparação conforme diagnóstico",
+      "Documentação técnica e fotografias",
       "Acompanhamento de peritos",
       "Prevenção de novos danos",
     ],
@@ -844,10 +844,10 @@ export const services = serviceBase.map((service) => {
     image: visual.image || "/hero-aureon.webp",
     gallery: visual.gallery || [],
     detailSections: [...(visual.detailSections || []), ...(additionalDetailSections[service.slug] || [])],
-    seoTitle: finalService.seoTitle || `${finalService.title} | Aureon Construção`,
+    seoTitle: finalService.seoTitle || finalService.title,
     seoDescription: finalService.seoDescription || `${finalService.headline}. Avaliação e orçamento para trabalhos em Lisboa, Setúbal, Alentejo e Algarve.`,
     status: "published",
-    updatedAt: finalService.updatedAt || "2026-07-09",
+    updatedAt: finalService.updatedAt || "2026-08-27",
   };
 });
 

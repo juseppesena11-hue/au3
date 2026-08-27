@@ -17,10 +17,18 @@ import { workImages } from "@/data/images";
 import { site } from "@/data/site";
 
 export const metadata = {
+  title: "Construção, Remodelação e Capoto",
+  description: "Construção, remodelação, Capoto / ETICS e soluções técnicas com especialistas coordenados em Lisboa, Setúbal, Algarve e Alentejo.",
   alternates: { canonical: "/" },
 };
 
 const problemLinks = [
+  {
+    title: "Quero aplicar ou reparar Capoto",
+    text: "Isolamento térmico exterior, reabilitação de fachadas, fissuras, remates e manutenção ETICS.",
+    href: "/servicos/capoto-etics",
+    icon: "shield",
+  },
   {
     title: "Tenho uma infiltração ou rutura",
     text: "Começamos por perceber a origem provável antes de regularizar e pintar.",
@@ -98,14 +106,14 @@ export default function HomePage() {
         <div className="hero-grid" />
         <div className="container-shell relative z-10 flex min-h-[inherit] items-center py-20">
           <div className="max-w-[760px]">
-            <p className="eyebrow text-gold">Remodelações · Reparações · Intervenções técnicas</p>
+            <p className="eyebrow text-gold">Construção · Remodelação · Capoto / ETICS</p>
             <h1 className="heading-xl mt-6 text-white">
-              Obras coordenadas com rigor, <span className="text-gold">do diagnóstico à entrega.</span>
+              Construção e remodelação com <span className="text-gold">especialistas em cada área.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/72 md:text-xl">
-              Remodelações, infiltrações, telhados, cozinhas e casas de banho com equipas
-              especializadas, documentação fotográfica quando aplicável e um ponto de
-              coordenação para acompanhar cada fase.
+              A Aureon coordena profissionais de confiança em construção, remodelações,
+              Capoto, telhados, canalização, eletricidade e acabamentos. O cliente mantém
+              um único ponto de contacto responsável pela sequência global da obra.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link href="/contactos#formulario" className="button button-primary">
@@ -123,6 +131,37 @@ export default function HomePage() {
               <div className="metric-card"><strong>{publishedServices.length}</strong><span>especialidades principais</span></div>
               <div className="metric-card"><strong>1</strong><span>coordenação central</span></div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space bg-sand/45">
+        <div className="container-shell grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-start">
+          <div>
+            <p className="eyebrow">Especialidade em destaque</p>
+            <h2 className="heading-lg mt-3">Capoto / ETICS com conteúdo técnico, orçamento e apoio à decisão</h2>
+            <p className="mt-6 leading-8 text-ink/65">
+              A Aureon mantém uma atuação ampla em obra, mas trata o isolamento térmico exterior como uma especialidade própria. Avaliamos aplicação nova, reabilitação, reparações, fissuras, remates e manutenção em moradias e prédios.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/servicos/capoto-etics" className="button button-primary">Ver serviço de Capoto</Link>
+              <Link href="/capoto/preco-por-m2" className="button button-ghost">Consultar preço por m²</Link>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              ["Preço e orçamento", "O que os 77–102 €/m² representam e quais fatores alteram o valor.", "/capoto/preco-por-m2"],
+              ["Materiais e espessuras", "EPS, XPS, lã mineral, desempenho, compatibilidade e remates.", "/capoto/eps-vs-xps-vs-la-mineral"],
+              ["Reparação e fissuras", "Impactos, zonas ocas, destacamentos e diagnóstico antes de pintar.", "/capoto/reparacao"],
+              ["Humidade e condensação", "Quando o isolamento ajuda e quando a origem exige outra solução.", "/capoto/humidade-condensacao"],
+            ].map(([title, text, href]) => (
+              <Link key={href} href={href} className="group rounded-2xl border border-ink/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-gold/50">
+                <Icon name="shield" className="h-6 w-6 text-gold" />
+                <h3 className="mt-4 text-lg font-bold text-ink">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-ink/60">{text}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy">Ler guia <Icon name="arrow" className="h-4 w-4" /></span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
