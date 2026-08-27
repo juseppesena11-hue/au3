@@ -1,16 +1,5 @@
-import JsonLd from "./JsonLd";
-
 export default function FaqSection({ faqs = [], title = "Perguntas frequentes" }) {
   if (!faqs.length) return null;
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
-  };
 
   return (
     <section className="section-space bg-sand/45">
@@ -29,7 +18,6 @@ export default function FaqSection({ faqs = [], title = "Perguntas frequentes" }
           ))}
         </div>
       </div>
-      <JsonLd data={schema} />
     </section>
   );
 }

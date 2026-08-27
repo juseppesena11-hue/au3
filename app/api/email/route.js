@@ -132,7 +132,7 @@ export async function POST(request) {
       auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
     });
 
-    await transporter.sendMail({
+    const delivery = await transporter.sendMail({
       from: `"Site Aureon" <${process.env.SMTP_USER}>`,
       to: process.env.CONTACT_TO || "juseppesena11@gmail.com",
       replyTo: email || undefined,
@@ -160,6 +160,9 @@ export async function POST(request) {
       ].join("\n"),
       attachments,
     });
+    if (!delivery.accepted?.length) {
+      throw new Error("O servidor de email não confirmou nenhum destinatário.");
+    }
     return Response.json({ ok: true });
   } catch {
     console.error("Falha ao processar formulário de contacto.");

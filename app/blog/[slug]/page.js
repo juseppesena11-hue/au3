@@ -14,17 +14,26 @@ export function generateStaticParams() {
   return publishedArticles.map(({ slug }) => ({ slug }));
 }
 
+function expandDescription(value) {
+  if (value.length >= 115) return value;
+  const expanded = `${value} Guia prático para preparar decisões, trabalhos e orçamento com maior clareza.`;
+  if (expanded.length <= 160) return expanded;
+  const shortened = expanded.slice(0, 157).replace(/\s+\S*$/, "");
+  return `${shortened}.`;
+}
+
 export function generateMetadata({ params }) {
   const article = getArticle(params.slug);
   if (!article) return {};
+  const description = expandDescription(article.seoDescription);
   return {
     title: article.seoTitle,
-    description: article.seoDescription,
+    description,
     alternates: { canonical: `/blog/${article.slug}` },
     openGraph: {
       type: "article",
       title: article.seoTitle,
-      description: article.seoDescription,
+      description,
       url: `/blog/${article.slug}`,
       publishedTime: article.datePublished,
       modifiedTime: article.dateModified,
@@ -33,7 +42,7 @@ export function generateMetadata({ params }) {
     twitter: {
       card: "summary_large_image",
       title: article.seoTitle,
-      description: article.seoDescription,
+      description,
       images: [article.coverImage],
     },
   };

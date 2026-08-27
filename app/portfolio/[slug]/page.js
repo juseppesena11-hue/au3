@@ -14,7 +14,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   const project = getProject(params.slug);
   if (!project) return {};
-  const title = project.seoTitle || `${project.title} | Aureon Construção`;
+  const title = (project.seoTitle || project.title).replace(/\s*\|\s*Aureon Construção\s*$/i, "");
   const description = project.seoDescription || project.summary;
   return {
     title,
